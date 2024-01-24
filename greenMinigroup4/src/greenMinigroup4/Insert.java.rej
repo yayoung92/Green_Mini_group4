@@ -1,0 +1,9 @@
+diff a/greenMinigroup4/src/greenMinigroup4/Insert.java b/greenMinigroup4/src/greenMinigroup4/Insert.java	(rejected hunks)
+@@ -37,4 +37,7 @@
+             e.printStackTrace();
+         }
+ 	}
++	public static void main(String[] args) {
++		System.out.println("보성연결");
++	}
+ }
