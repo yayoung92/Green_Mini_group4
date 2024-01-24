@@ -14,11 +14,8 @@ public class Insert {
         try {
         	conn = DBConnection.getConnection();
         	String sql = "insert into mini " +
-                    "(name, age, gender, phoneNumber, MBTI, address, nickName, category, u_idx) " +
-                    "values (?, ?, ?, ?, ?, ?, ?, ?, "
-                    + "select u.u_idx "
-                    + "from user u "
-                    + "where u.u_idx = ?)";
+                    "(name, age, gender, phoneNumber, MBTI, address, nickName, category) " +
+                    "values (?, ?, ?, ?, ?, ?, ?, ?)";
         	pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, person.getName());
