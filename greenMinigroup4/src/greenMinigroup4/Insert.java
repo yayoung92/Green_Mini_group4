@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import db.DBConnection;
 
 public class Insert {
+	
 	public void insert(Person person) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
