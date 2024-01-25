@@ -1,0 +1,10 @@
+.git 폴더가 있는 곳으로가서
+마우스 우클릭
+git bash 누르고
+
+
+git add .
+git commit -m "test"
+
+git push origin jeongjin
+
