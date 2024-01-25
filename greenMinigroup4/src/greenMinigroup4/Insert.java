@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import db.DBConnection;
 
 public class Insert {
+	
 	public void insert(Person person) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -26,7 +27,6 @@ public class Insert {
             pstmt.setString(6, person.getAddress());
             pstmt.setString(7, person.getNickName());
             pstmt.setString(8, person.getCategory());
-            pstmt.setInt(9, person.getIdx());
             pstmt.executeUpdate();
 
 
@@ -34,4 +34,5 @@ public class Insert {
             e.printStackTrace();
         }
 	}
+	
 }

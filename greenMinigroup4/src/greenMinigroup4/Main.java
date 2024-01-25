@@ -103,7 +103,8 @@ public class Main {
 							System.out.println();
 							System.out.println(person.toString());
 							
-							person = new Person(name, age, gender, phone, MBTI, address, nickName, category, user.getIdx());
+							person = new Person(name,age,gender, phone, MBTI,adr,nick,ca);
+
 							insert.insert(person);
 							
 							System.out.println();
@@ -188,8 +189,10 @@ public class Main {
 							// 설정하는 부분
 							System.out.println("<7.설정>");
 							System.out.println();
-							System.out.println("1.탈퇴하기  2.user이름 수정하기");
+							System.out.println("1.탈퇴하기  2.user이름 수정하기  3.로그아웃");
+							System.out.print("번호 선택  :  ");
 							num = scan.nextInt();
+
 							if(num ==1) {
 								System.out.print("id 를 입력해주세요 : ");
 								id = scan.next();
@@ -212,7 +215,11 @@ public class Main {
 									}
 								} 
 								
-							}
+							} else if(num == 3) {
+								System.out.println("로그아웃 되어있습니다.");
+								break stop;
+							} else
+								System.err.println("잘못 눌렀습니다.");
 							break;
 						default:
 							break;
@@ -223,10 +230,10 @@ public class Main {
 
 			} else if(start==2) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
-				System.out.println("  ●  아이디를 입력하세요: ");
+				System.out.print("  ●  아이디를 입력하세요: ");
 				String newId = scan.next();
 				
-				System.out.println("  ●  비밀번호를 입력하세요: ");
+				System.out.print("  ●  비밀번호를 입력하세요: ");
 				String newPassword = scan.next();
 				
 				login.join(newId, newPassword);
