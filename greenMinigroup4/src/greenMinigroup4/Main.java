@@ -11,6 +11,7 @@ public class Main {
 		Search search = new Search();
 		Delete delete = new Delete();
 		Insert insert = new Insert();
+		Update update = new Update();
 		
 		boolean check = true;
 		int start = 0;
@@ -91,18 +92,18 @@ public class Main {
 							String MBTI = scan.next();
 
 							System.out.print(" -  주소 : ");
-							String adr = scan.next();
+							String address = scan.next();
 
 							System.out.print(" -  별명 : ");
-							String nick = scan.next();
+							String nickName = scan.next();
 							
 							System.out.print(" -  카테고리 : ");
-							String ca = scan.next();
+							String category = scan.next();
 							
 							System.out.println();
 							System.out.println(person.toString());
 							
-							person = new Person(name,age,gender, phone, MBTI,adr,nick,ca,user.getIdx());
+							person = new Person(name, age, gender, phone, MBTI, address, nickName, category, user.getIdx());
 							insert.insert(person);
 							
 							System.out.println();
@@ -110,16 +111,54 @@ public class Main {
 
 							break;
 						case 3:
-							// 수정하는 부분
-							System.out.println("<3.수정하기>");
-							System.out.println();
+						    // 수정하는 부분
+						    System.out.println("<3.수정하기>");
+						    System.out.println();
 
-							System.out.println(" 이름 수정하기 = " + person.getName()+ " -> ");
-							person.setName(scan.next());
+						    // 현재 사용자의 정보 출력
+						    System.out.println(" 현재 정보:");
+						    System.out.println(person.toString());
 
-							System.out.println();
-							System.out.println(" [ 수정되었습니다. ] ");
-							break;
+						    // 수정할 정보 입력
+						    System.out.print(" 새로운 이름 입력: ");
+						    String newName = scan.next();
+						    person.setName(newName);
+
+						    System.out.print(" 새로운 나이 입력: ");
+						    String newAge = scan.next();
+						    person.setAge(newAge);
+
+						    System.out.print(" 새로운 성별 입력: ");
+						    String newGender = scan.next();
+						    person.setGender(newGender);
+
+						    System.out.print(" 새로운 전화번호 입력( - 포함해서 입력해주세요): ");
+						    String newPhone = scan.next();
+						    person.setPhoneNumber(newPhone);
+
+						    System.out.print(" 새로운 MBTI 입력: ");
+						    String newMBTI = scan.next();
+						    person.setMBTI(newMBTI);
+
+						    System.out.print(" 새로운 주소 입력: ");
+						    String newAddress = scan.next();
+						    person.setAddress(newAddress);
+
+						    System.out.print(" 새로운 별명 입력: ");
+						    String newNickName = scan.next();
+						    person.setNickName(newNickName);
+
+						    System.out.print(" 새로운 카테고리 입력: ");
+						    String newCategory = scan.next();
+						    person.setCategory(newCategory);
+
+						    // 수정된 정보를 데이터베이스에 업데이트
+//						    update.Update(person);
+
+						    System.out.println();
+						    System.out.println(" [ 수정되었습니다. ] ");
+						    break;
+
 						case 4:
 	// 삭제하는 부분  || 삭제 할 사람 정하는 것을 번호로 할 것인지, 이름으로 할 것인지?
 							System.out.println("<4.삭제하기>");
