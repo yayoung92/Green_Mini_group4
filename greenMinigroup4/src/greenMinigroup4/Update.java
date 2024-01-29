@@ -15,10 +15,8 @@ public class Update {
 		
 		try {
         	conn = DBConnection.getConnection();
-        	String sql = "update mini " +
-                    "(name, age, gender, phoneNumber, MBTI, address, nickName, category) " +
-                    "where name = ?";
-        	pstmt = conn.prepareStatement(sql);
+        	String sql = "UPDATE mini SET name=?, age=?, gender=?, phoneNumber=?, MBTI=?, address=?, nickName=?, category=? WHERE u_idx=?";
+            pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, person.getName());
             pstmt.setString(2, person.getAge());
@@ -29,6 +27,7 @@ public class Update {
             pstmt.setString(7, person.getNickName());
             pstmt.setString(8, person.getCategory());
             pstmt.setInt(9, person.getIdx());
+            
             pstmt.executeUpdate();
 
 

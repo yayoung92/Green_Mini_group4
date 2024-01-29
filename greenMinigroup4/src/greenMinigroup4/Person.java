@@ -12,12 +12,14 @@ public class Person {
 	public String nickName;
 	public String category;
 	public int u_idx;
-	
+
 	public Person(){
 		
 	}
 	
-	public Person(String name, String age, String gender, String phoneNumber, String MBTI, String address, String nickName, String category){
+	
+	
+	public Person(String name, String age, String gender, String phoneNumber, String MBTI, String address, String nickName, String category, int u_idx){
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
@@ -26,6 +28,7 @@ public class Person {
 		this.address = address;
 		this.nickName = nickName;
 		this.category = category;
+		this.u_idx = u_idx;
 	}
 	
 	public int getIdx() {
@@ -89,11 +92,16 @@ public class Person {
 		this.u_idx = u_idx;
 	}
 
+//	@Override
+//	public String toString() {
+//		return "Person [idx=" + idx + ", name=" + name + ", age=" + age + ", gender=" + gender + ", phoneNumber="
+//				+ phoneNumber + ", MBTI=" + MBTI + ", address=" + address + ", nickName=" + nickName + ", category="
+//				+ category + ", u_idx=" + u_idx + "]";
+//	}
+	
 	@Override
 	public String toString() {
-		return "Person [idx=" + idx + ", name=" + name + ", age=" + age + ", gender=" + gender + ", phoneNumber="
-				+ phoneNumber + ", MBTI=" + MBTI + ", address=" + address + ", nickName=" + nickName + ", category="
-				+ category + ", u_idx=" + u_idx + "]";
+	    return "";
 	}
 	
 	

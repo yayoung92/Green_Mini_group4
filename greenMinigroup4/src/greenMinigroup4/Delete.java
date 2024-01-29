@@ -5,7 +5,8 @@ import java.sql.PreparedStatement;
 
 import db.DBConnection;
 
-public class Delete {
+public class Delete { 
+	// 회워탈퇴
 	public int delete(String name, String password) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -14,7 +15,7 @@ public class Delete {
 		
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "delete from user where u_id=? and u_password=?";
+			String sql = "delete from user where u_id=? and u_passphoneNumber word=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
 			pstmt.setString(2, password);
@@ -29,17 +30,19 @@ public class Delete {
 			return 0;
 	}
 	
-	public int deleteperson(int idx) {
+	public int deleteperson(String name, String phonenumber, int deleteidx ) {
+		// 주소록 삭제
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
 		int result = 0;
 		
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "delete from user where idx=?";
+			String sql = "delete from mini where name=? and phoneNumber=? and u_idx=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, idx);
+			pstmt.setString(1, name);
+			pstmt.setString(2, phonenumber);
+			pstmt.setInt(3, deleteidx);
 			result = pstmt.executeUpdate();
 			
 		} catch(Exception e) {
