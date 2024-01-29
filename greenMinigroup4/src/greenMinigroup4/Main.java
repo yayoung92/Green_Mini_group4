@@ -16,7 +16,7 @@ public class Main {
 		
 		Delete delete = new Delete();
 		
-		G_Test test = new G_Test();
+		G_Test g_test = new G_Test();
 		
 		boolean check = true;
 		int start = 0;
