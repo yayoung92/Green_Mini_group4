@@ -27,7 +27,7 @@ public class Login {
 				
 
 			}else {
-				System.out.println("회원정보가 없습니다.");
+				ConsoleTextColor.printColorln("회원정보가 없습니다.", "green");
 				return 0;
 			}
 
@@ -96,7 +96,7 @@ public class Login {
 		return false;
 	}
 	
-	// 비밀번호 찾아서 비교해야하나? 비밀번호 틀리면 비밀번호 틀렸다고 알려주고 싶은뎅
 
+	
 
 }
