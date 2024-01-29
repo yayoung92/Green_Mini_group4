@@ -1,14 +1,7 @@
 package greenMinigroup4; // 업데이트 기능
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Scanner;
-
-import db.DBConnection;
-
 public class Update {
+
 	public void update(Person person) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -31,8 +24,4 @@ public class Update {
             pstmt.executeUpdate();
 
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-	}
 }

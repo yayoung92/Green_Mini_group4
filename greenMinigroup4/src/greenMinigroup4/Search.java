@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import db.DBConnection;
 
 public class Search {
+
 	public void search(String name) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -34,3 +35,4 @@ public class Search {
     }
 }	
 }
+

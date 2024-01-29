@@ -9,10 +9,14 @@ public class Main {
 		Person person = new Person();
 		Login login = new Login();
 		Search search = new Search();
-		Delete delete = new Delete();
+
 		Insert insert = new Insert();
 		Update update = new Update();
 		List list = new List();
+		
+		Delete delete = new Delete();
+		
+		G_Test test = new G_Test();
 		
 		boolean check = true;
 		int start = 0;
@@ -134,15 +138,15 @@ public class Main {
 	// 삭제하는 부분  이름과 번호 둘다 확인한다 || 동명의인도 가능하기 때문 || idx 값을 또 불러와보자
 							System.out.println("<4.삭제하기>");
 							System.out.println();
-							System.out.print("삭제할 사람의 이름을 입력해주세요 : ");	
-							String nm = scan.next();
+
+							System.out.print("삭제할 사람의 이름을 입력해주세요 : ");
+							String d = scan.next();
 							System.out.print("삭제할 사람의 번호를 입력해주세요 : ");	
-							String ph = scan.next();
-							int deleteidx = insert.idx(id); // idx값 잡힘
+							String p = scan.next();
 							
-							if(delete.deleteperson(nm,ph,deleteidx)==1) {
+							if(delete.deleteperson(d,p,delete.selectIdx(id))==1) {
 								System.out.println(" [ 삭제되었습니다. ] ");
-							} else if(delete.deleteperson(nm, ph,deleteidx)==0) {
+							} else if (delete.deleteperson(d,p,delete.selectIdx(id)) == 0) {
 								System.out.println("주소록에 없는 사람입니다.");
 							}
 							
@@ -175,11 +179,12 @@ public class Main {
 								id = scan.next();
 								System.out.print("비밀번호 를 입력해주세요 : ");
 								password = scan.next();
+                                System.out.print("정말로 탈퇴하시겠습니까? < 1 : yes> : ");
+                                num = scan.nextInt();
 								
 								if(num==1) {
+									delete.deleteIdxPerson(delete.selectIdx(id));
 									if (delete.delete(id, password) == 1) {
-										System.out.print("정말로 탈퇴하시겠습니까? < 1 : yes> : ");
-										num = scan.nextInt();
 										System.out.println();
 										System.out.println("------------------------------------------");
 										System.out.println("회원정보가 삭제되었습니다.");
@@ -193,12 +198,14 @@ public class Main {
 								} 
 								
 							} else if(num == 3) {
-								System.out.println("로그아웃 되어있습니다.");
+								ConsoleTextColor.printColorln("로그아웃 되었습니다.", "purple");
+								
 								break stop;
 							} else
 								System.err.println("잘못 눌렀습니다.");
 							break;
 						default:
+							System.err.println("잘못 입력했습니다.");
 							break;
 						}
 					}
@@ -213,9 +220,9 @@ public class Main {
 				System.out.print("  ●  비밀번호를 입력하세요: ");
 				String newPassword = scan.next();
 				
-				login.join(newId, newPassword);
-				
-			}
+				login.join(newId, newPassword);		
+			} else
+				System.err.println("잘못 입력했습니다.");
 		}
 
 	}
