@@ -17,7 +17,7 @@ public class Person {
 		
 	}
 	
-	public Person(String name, String age, String gender, String phoneNumber, String MBTI, String address, String nickName, String category){
+	public Person(String name, String age, String gender, String phoneNumber, String MBTI, String address, String nickName, String category, int u_idx){
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
@@ -26,6 +26,7 @@ public class Person {
 		this.address = address;
 		this.nickName = nickName;
 		this.category = category;
+		this.u_idx = u_idx;
 	}
 	
 	public int getIdx() {
