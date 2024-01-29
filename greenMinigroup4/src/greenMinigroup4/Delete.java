@@ -16,7 +16,7 @@ public class Delete {
 		
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "delete from user where u_id=? and u_password=?";
+			String sql = "delete from user where u_id=? and u_passphoneNumber word=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
 			pstmt.setString(2, password);
@@ -30,6 +30,7 @@ public class Delete {
 		} else
 			return 0;
 	}
+
 	// 유저의 idx 가져오기
     public int selectIdx(String id){
         Connection conn = null;
@@ -74,7 +75,6 @@ public class Delete {
 	public int deleteperson(String name, String phoneNumber, int idx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
 		int result = 0;
 		
 		try {
@@ -84,6 +84,7 @@ public class Delete {
 			pstmt.setString(1, name);
 			pstmt.setString(2, phoneNumber);
 			pstmt.setInt(3, idx);
+
 			result = pstmt.executeUpdate();
 			
 		} catch(Exception e) {

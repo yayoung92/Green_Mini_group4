@@ -38,9 +38,9 @@ public class Login {
 	}
 
 	// 회원가입 기능
-	public void join(String name, String pw) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
+		public void join(String name, String pw) {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
 		boolean result = checkID(name);
 
 		if (!result) {

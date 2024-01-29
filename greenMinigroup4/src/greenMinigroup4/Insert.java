@@ -3,33 +3,36 @@ package greenMinigroup4;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import db.DBConnection;
 
 public class Insert {
-	User user = new User();
-    public int selectIdx(String id){
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        int idx = 0;
-        try{
-            conn = DBConnection.getConnection();
-            String sql = "select u_idx from user where u_id=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, id);
-            rs = pstmt.executeQuery();
+	
+	// 아이디 기준으로 u_idx 값을 가져온다.
+	public int idx (String idx) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int uidx = 0;
 
-            if (rs.next()) {
-                 idx = rs.getInt("u_idx");
-            }
+try{
+conn = DBConnection.getConnection();
+			String sql = "select * from user where u_id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, idx);
+			rs = pstmt.executeQuery();
 
-        }catch (Exception e){
-            e.printStackTrace();;
-        }
-        return idx;
-    }
-    
+	if(rs.next()){
+		uidx = rs.getInt("u_idx");
+	}
+}catch (Exception e) {
+            e.printStackTrace();
+}
+return uidx;
+}
+			
+	
 	public void insert(Person person) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

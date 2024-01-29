@@ -12,7 +12,7 @@ public class Person {
 	public String nickName;
 	public String category;
 	public int u_idx;
-	
+
 	public Person(){
 		
 	}
@@ -90,11 +90,16 @@ public class Person {
 		this.u_idx = u_idx;
 	}
 
+//	@Override
+//	public String toString() {
+//		return "Person [idx=" + idx + ", name=" + name + ", age=" + age + ", gender=" + gender + ", phoneNumber="
+//				+ phoneNumber + ", MBTI=" + MBTI + ", address=" + address + ", nickName=" + nickName + ", category="
+//				+ category + ", u_idx=" + u_idx + "]";
+//	}
+	
 	@Override
 	public String toString() {
-		return "Person [idx=" + idx + ", name=" + name + ", age=" + age + ", gender=" + gender + ", phoneNumber="
-				+ phoneNumber + ", MBTI=" + MBTI + ", address=" + address + ", nickName=" + nickName + ", category="
-				+ category + ", u_idx=" + u_idx + "]";
+	    return "";
 	}
 	
 	
