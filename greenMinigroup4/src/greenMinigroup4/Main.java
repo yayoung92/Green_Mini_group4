@@ -154,10 +154,11 @@ public class Main {
 						case 5:
 							// 검색하는 부분
 							System.out.println("<5.검색하기>");
-							System.out.println("이름을 입력하세요 : ");
-							String keyword = scan.next();
+							System.out.print("  ●  이름을 입력하세요: ");
+							name = scan.next();
+
 							
-							search.search(keyword);
+							search.searchDetail(name);
 							
 							break;
 						case 6:
