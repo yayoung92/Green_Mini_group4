@@ -1,40 +1,69 @@
 package greenMinigroup4;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Arrays;
 
 import db.DBConnection;
 
+
 public class Search {
-
-	public void search(String name, int Searchidx) {
-		Connection conn = null;
+/*
+	public void search(String name) {
+	
+			Connection con = null;
 		PreparedStatement pstmt = null;
-		
-        try {
-        	conn = DBConnection.getConnection();
-        	String sql = "SELECT * FROM mini WHERE name LIKE ? and u_idx LIKE ?";
-        	pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, name);
-            pstmt.setInt(2, Searchidx);
-            ResultSet rs = pstmt.executeQuery();
-            System.out.println("검색결과");
-            
-            while(rs.next()) {
-            	
-            	System.out.println("이름 : " + rs.getString("name"));
-            	System.out.println("나이 : " + rs.getString("age"));
-            	System.out.println("성별 : " + rs.getString("gender"));
-            	System.out.println("전화번호 : " + rs.getString("phoneNumber"));
-            	System.out.println("MBTI : " + rs.getString("MBTI"));
-            	System.out.println("주소 : " + rs.getString("address"));
-            	System.out.println("별명 : " + rs.getString("nickName"));
-            	System.out.println("카테고리 : " + rs.getString("category"));
-            }
-	}catch(Exception e) {
-        e.printStackTrace();
-    }
-}	
-}
 
+		try {
+			con = DriverManager.getConnection(Connect.url, Connect.user, Connect.password);
+			
+			pstmt
+            = con.prepareStatement("SELECT*FROM member\r\n"
+            		+ "WHERE NAME=?");
+			
+			pstmt.setString(1,name); // ?에 들어갈 데이터
+			ResultSet result=pstmt.executeQuery();
+			System.out.println(result.getString("name"));
+			System.out.println(result.getString("email"));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	*/
+	public void searchDetail(String name) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+			con = DBConnection.getConnection();
+			
+			pstmt
+            = con.prepareStatement("SELECT * FROM mini "
+            		+ "WHERE NAME=? ");
+			
+			pstmt.setString(1,name);
+			ResultSet result=pstmt.executeQuery();
+			while(result.next()) {
+				System.out.println("이름  :  "+result.getString("name"));
+				System.out.println("나이  :  "+result.getString("age"));
+				System.out.println("성별  :  "+result.getString("gender"));
+				System.out.println("번호  :  "+result.getString("phoneNumber"));
+				System.out.println("엠비티아이  :  "+result.getString("MBTI"));
+				System.out.println("주소  :  "+result.getString("address"));
+				System.out.println("별명  :  "+result.getString("nickName"));
+				System.out.println("소속  :  "+result.getString("category"));
+				System.out.println();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+}

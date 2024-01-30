@@ -123,23 +123,13 @@ public class Main {
 							break;
 						case 5:
 							System.out.println("<5.검색하기>");
-							System.out.println("검색 종류를 선택해주세요");
-							System.out.println("1.카테고리별 검색 ||  2.이름으로검색 ");
-							int searchStart = scan.nextInt();
 
-							if(searchStart == 1){
-							System.out.println("카테고리를 입력하세요 : ");
-							String CategoryKeyword = scan.next();
-							int Categoryidx = insert.idx(id);
-							categorysearch.categorysearch(CategoryKeyword, Categoryidx);
-							}
+							System.out.print("  ●  이름을 입력하세요: ");
+							name = scan.next();
 
-							else if(searchStart == 2){
-							System.out.println("이름을 입력하세요 : ");
-							String keyword = scan.next();							
-							int Searchidx = insert.idx(id);
-							search.search(keyword,Searchidx);
-							}
+							
+							search.searchDetail(name);
+							
 							break;
 						case 6:
 							// 종료하는 부분
