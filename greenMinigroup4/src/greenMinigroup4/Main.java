@@ -125,7 +125,7 @@ public class Main {
 							System.out.println("<5.검색하기>");
 
 							System.out.print("  ●  이름을 입력하세요: ");
-							name = scan.next();
+							String name = scan.next();
 
 							
 							search.searchDetail(name);
