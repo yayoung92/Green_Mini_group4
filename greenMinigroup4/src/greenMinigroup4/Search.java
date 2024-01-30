@@ -39,7 +39,6 @@ public class Search {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		
 
 		try {
 			con = DBConnection.getConnection();
