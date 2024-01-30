@@ -8,19 +8,21 @@ import db.DBConnection;
 
 public class Search {
 
-	public void search(String name) {
+	public void search(String name, int Searchidx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
         try {
         	conn = DBConnection.getConnection();
-        	String sql = "SELECT * FROM mini WHERE name LIKE ?";
+        	String sql = "SELECT * FROM mini WHERE name LIKE ? and u_idx LIKE ?";
         	pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, name);
+            pstmt.setInt(2, Searchidx);
             ResultSet rs = pstmt.executeQuery();
+            System.out.println("검색결과");
             
             while(rs.next()) {
-            	System.out.println("검색결과");
+            	
             	System.out.println("이름 : " + rs.getString("name"));
             	System.out.println("나이 : " + rs.getString("age"));
             	System.out.println("성별 : " + rs.getString("gender"));
