@@ -78,7 +78,7 @@ public class Insert {
 	}
 
 	// 주소록 등록시 휴대폰번호 중복 체크
-	public boolean Find(int PNumber) {
+	public boolean Find(String PNumber) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -86,7 +86,7 @@ public class Insert {
 			conn = DBConnection.getConnection();
 			String sql = "SELECT * FROM person WHERE phoneNumber LIKE ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, PNumber);
+			pstmt.setString(1, PNumber);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {

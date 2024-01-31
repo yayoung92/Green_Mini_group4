@@ -6,7 +6,7 @@ public class Person {
 	public String name;
 	public int age;
 	public String gender;
-	public int phoneNumber;
+	public String phoneNumber;
 	public String MBTI;
 	public String address;
 	public String nickName;
@@ -17,7 +17,7 @@ public class Person {
 		
 	}
 	
-	public Person(String name, int age, String gender, int phoneNumber, String MBTI, String address, String nickName, String category, int u_idx){
+	public Person(String name, int age, String gender, String phoneNumber, String MBTI, String address, String nickName, String category, int u_idx){
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
@@ -53,10 +53,10 @@ public class Person {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getMBTI() {
