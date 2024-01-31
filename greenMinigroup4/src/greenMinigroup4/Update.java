@@ -19,7 +19,7 @@ public class Update {
             pstmt.setString(1, person.getName());
             pstmt.setInt(2, person.getAge());
             pstmt.setString(3, person.getGender());
-            pstmt.setInt(4, person.getPhoneNumber());
+            pstmt.setString(4, person.getPhoneNumber());
             pstmt.setString(5, person.getMBTI());
             pstmt.setString(6, person.getAddress());
             pstmt.setString(7, person.getNickName());

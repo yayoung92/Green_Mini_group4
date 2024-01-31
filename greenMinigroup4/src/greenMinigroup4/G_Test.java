@@ -23,7 +23,7 @@ public class G_Test {
             pstmt.setString(1, person.getName());
             pstmt.setInt(2, person.getAge());
             pstmt.setString(3, person.getGender());
-            pstmt.setInt(4, person.getPhoneNumber());
+            pstmt.setString(4, person.getPhoneNumber());
             pstmt.setString(5, person.getMBTI());
             pstmt.setString(6, person.getAddress());
             pstmt.setString(7, person.getNickName());
@@ -53,7 +53,7 @@ public class G_Test {
 	                Person person = new Person();
 	                person.setName(rs.getString("name"));
 	                person.setAge(rs.getInt("age"));
-	                person.setPhoneNumber(rs.getInt("phoneNumber"));
+	                person.setPhoneNumber(rs.getString("phoneNumber"));
 	                list.add(person);
 	            }
 	            if(!list.isEmpty()){
