@@ -44,9 +44,9 @@ public class Search {
 
 		try {
 			con = DBConnection.getConnection();
-			
-			pstmt
-            = con.prepareStatement("SELECT *from mini WHERE u_idx=? AND NAME=?");
+
+            pstmt = con.prepareStatement("SELECT * FROM person "
+            		+ "WHERE NAME=? ");
 			
 			pstmt.setString(2,name);
 			pstmt.setInt(1,u_idx);

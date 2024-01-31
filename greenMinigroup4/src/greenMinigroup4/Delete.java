@@ -3,6 +3,7 @@ package greenMinigroup4;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Scanner;
 
 import db.DBConnection;
 
@@ -60,7 +61,7 @@ public class Delete {
 
         try {
             conn = DBConnection.getConnection();
-            String sql = "delete from mini where u_idx=?";
+            String sql = "delete from person where u_idx=?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, idx);
             pstmt.executeUpdate();
@@ -69,20 +70,23 @@ public class Delete {
             e.printStackTrace();
         }
     }
-    
-    
-    // 유저의 주소록 사람 1명 삭제하기 - 진행중
-	public int deleteperson(String name, String phoneNumber, int idx) {
+     
+    // 유저의 주소록 사람 1명 삭제하기
+    public int deleteperson(int idx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
+		Scanner scan = new Scanner(System.in);
 		
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "delete from mini where name=? and phoneNumber=? and u_idx=?";
+			String sql = "delete from person where name=? and phoneNumber=? and u_idx=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
-			pstmt.setString(2, phoneNumber);
+			
+			System.out.print("삭제할 사람의 이름을 입력해주세요 : ");
+			pstmt.setString(1, scan.next());
+			System.out.print("삭제할 사람의 번호를 입력해주세요 : ");
+			pstmt.setString(2, scan.next());
 			pstmt.setInt(3, idx);
 
 			result = pstmt.executeUpdate();

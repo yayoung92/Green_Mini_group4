@@ -15,15 +15,15 @@ public class G_Test {
 		
 		try {
         	conn = DBConnection.getConnection();
-        	String sql = "update mini " +
+        	String sql = "update person " +
                     "(name, age, gender, phoneNumber, MBTI, address, nickName, category) " +
                     "where name = ?";
         	pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, person.getName());
-            pstmt.setString(2, person.getAge());
+            pstmt.setInt(2, person.getAge());
             pstmt.setString(3, person.getGender());
-            pstmt.setString(4, person.getPhoneNumber());
+            pstmt.setInt(4, person.getPhoneNumber());
             pstmt.setString(5, person.getMBTI());
             pstmt.setString(6, person.getAddress());
             pstmt.setString(7, person.getNickName());
@@ -44,7 +44,7 @@ public class G_Test {
 
 	        try {
 	            conn = DBConnection.getConnection();
-	            String sql = "select name, age from mini where u_idx=?";
+	            String sql = "select name, age from person where u_idx=?";
 	            pstmt = conn.prepareStatement(sql);
 	            pstmt.setInt(1, idx);
 	            rs = pstmt.executeQuery();
@@ -52,8 +52,8 @@ public class G_Test {
 	            while(rs.next()) {
 	                Person person = new Person();
 	                person.setName(rs.getString("name"));
-	                person.setAge(rs.getString("age"));
-	                person.setPhoneNumber(rs.getString("phoneNumber"));
+	                person.setAge(rs.getInt("age"));
+	                person.setPhoneNumber(rs.getInt("phoneNumber"));
 	                list.add(person);
 	            }
 	            if(!list.isEmpty()){

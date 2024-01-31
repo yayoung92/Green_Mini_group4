@@ -3,6 +3,7 @@ package greenMinigroup4;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Scanner;
 
 import db.DBConnection;
 
@@ -36,20 +37,36 @@ public class Login {
 		}
 		return 1;
 	}
+	
+	// 회원가입 정보 받는 코드
+	public User inputUser() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("          <      로그인 하기      >          ");
+		System.out.print("  ●  아이디를 입력하세요: ");
+		String id = scan.next();
 
+		System.out.print("  ●  비밀번호를 입력하세요: ");
+		String password = scan.next();
+		
+		return new User(id, password);
+		
+	}
+	
 	// 회원가입 기능
-		public void join(String name, String pw) {
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-		boolean result = checkID(name);
+	public void join() {
+		User user = this.inputUser();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		boolean result = checkID(user.getUserId());
+		Scanner scan = new Scanner(System.in);
 
 		if (!result) {
 			try {
 				conn = DBConnection.getConnection();
 				String sql = "insert into user (`u_id`,`u_password`) " + "values (?,?)";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, name);
-				pstmt.setString(2, pw);
+				pstmt.setString(1, user.getUserId());
+				pstmt.setString(2, user.getUserPassword());
 				pstmt.executeUpdate();
 				
 				System.out.println();
@@ -63,17 +80,7 @@ public class Login {
 			System.err.println("아이디 중복입니다. 회원가입에 실패했습니다.");
 			System.out.println();
 		}
-//		finally{
-//			if(conn != null) {
-//				try{
-//					conn.close();
-//				} catch(Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		}
 	}
-
 	// 아이디 중복 확인 기능
 	public boolean checkID(String name) {
 		Connection conn = null;
@@ -95,8 +102,4 @@ public class Login {
 		}
 		return false;
 	}
-	
-
-	
-
 }

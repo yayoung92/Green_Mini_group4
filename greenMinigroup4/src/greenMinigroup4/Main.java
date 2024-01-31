@@ -102,19 +102,13 @@ public class Main {
 							break;
 							
 						case 4:
-	// 삭제하는 부분  이름과 번호 둘다 확인한다 || 동명의인도 가능하기 때문 || idx 값을 또 불러와보자
+						// 삭제하는 부분
 							System.out.println("<4.삭제하기>");
-							System.out.println();
-
-							System.out.print("삭제할 사람의 이름을 입력해주세요 : ");
-							String d = scan.next();
-							System.out.print("삭제할 사람의 번호를 입력해주세요 : ");	
-							String p = scan.next();
-							int idx = insert.idx(id);
+							System.out.println();						
 							
-							if(delete.deleteperson(d,p,delete.selectIdx(id))==1) {
+							if(delete.deleteperson(delete.selectIdx(id))==1) {
 								System.out.println(" [ 삭제되었습니다. ] ");
-							} else if (delete.deleteperson(d,p,delete.selectIdx(id)) == 0) {
+							} else if (delete.deleteperson(delete.selectIdx(id)) == 0) {
 								System.out.println("주소록에 없는 사람입니다.");
 							}
 							
@@ -185,13 +179,7 @@ public class Main {
 
 			} else if(start==2) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
-				System.out.print("  ●  아이디를 입력하세요: ");
-				String newId = scan.next();
-				
-				System.out.print("  ●  비밀번호를 입력하세요: ");
-				String newPassword = scan.next();
-				
-				login.join(newId, newPassword);		
+				login.join();
 			} else
 				System.err.println("잘못 입력했습니다.");
 		}
