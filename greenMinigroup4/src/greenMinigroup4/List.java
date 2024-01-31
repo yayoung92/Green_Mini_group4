@@ -39,7 +39,7 @@ public class List {
 		
 		 try {
 		        conn = DBConnection.getConnection();
-		        String sql = "SELECT name, category, phoneNumber, age FROM mini WHERE u_idx = ? ORDER BY category ASC";
+		        String sql = "SELECT name, category, phoneNumber, age FROM person WHERE u_idx = ? ORDER BY category ASC";
 		        pstmt = conn.prepareStatement(sql);
 		        pstmt.setString(1, idxNumber);
 		        ResultSet rs = pstmt.executeQuery();
