@@ -16,7 +16,9 @@ public class Main {
 		
 		Delete delete = new Delete();
 		
-		G_Test g_test = new G_Test();
+		G_Test g_test = new G_Test(); 
+		
+		CategorySearch categorysearch = new CategorySearch();
 		
 		boolean check = true;
 		int start = 0;
@@ -77,44 +79,11 @@ public class Main {
 							System.out.println("<2.등록하기>");
 							System.out.println();
 
-							System.out.print(" -  이름 : ");
-							String name = scan.next();
-							
-							System.out.print(" -  나이 : ");
-							String age = scan.next();
-
-							System.out.print(" -  성별 : ");
-							String gender = scan.next();
-
-							System.out.print(" -  전화번호( - 포함해서 입력해주세요) : ");
-							String phone = scan.next();
-
-							System.out.print(" -  MBTI : ");
-							String MBTI = scan.next();
-
-							System.out.print(" -  주소 : ");
-							String address = scan.next();
-
-							System.out.print(" -  별명 : ");
-							String nickName = scan.next();
-							
-							System.out.print(" -  카테고리 : ");
-							String category = scan.next();
-							
-							
-							
-							System.out.println();
-							System.out.println(person.toString());
-														
-							int mjmj = insert.idx(id);
-							person = new Person(name,age,gender, phone, MBTI,address,nickName,category,mjmj);
-
-							insert.insert(person);
-							
-
-							System.out.println(" [ 등록되었습니다. ] ");
+							int Insertidx = insert.idx(id);
+							insert.insert(person,Insertidx);
 
 							break;
+							
 						case 3:// 수정하는 부분
 
 							System.out.println("<3.수정하기>");
@@ -143,6 +112,7 @@ public class Main {
 							String d = scan.next();
 							System.out.print("삭제할 사람의 번호를 입력해주세요 : ");	
 							String p = scan.next();
+							int idx = insert.idx(id);
 							
 							if(delete.deleteperson(d,p,delete.selectIdx(id))==1) {
 								System.out.println(" [ 삭제되었습니다. ] ");
@@ -152,12 +122,13 @@ public class Main {
 							
 							break;
 						case 5:
-							// 검색하는 부분
 							System.out.println("<5.검색하기>");
-							System.out.println("이름을 입력하세요 : ");
-							String keyword = scan.next();
+
+							System.out.print("  ●  이름을 입력하세요: ");
+							String name = scan.next();
+
 							
-							search.search(keyword);
+							search.searchDetail(name);
 							
 							break;
 						case 6:

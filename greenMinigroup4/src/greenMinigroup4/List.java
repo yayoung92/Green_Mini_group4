@@ -31,30 +31,44 @@ public class List {
 	}
 	
 	
-	
 	public int SearchNumber(String idxNumber ) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int index =0;
-        try {
-        	conn = DBConnection.getConnection();
-        	String sql = "SELECT * FROM mini WHERE u_idx=?";
-        	pstmt = conn.prepareStatement(sql);
-        	pstmt.setString(1, idxNumber );
-            ResultSet rs = pstmt.executeQuery();
-            
-            while(rs.next()) {
-            	System.out.println("검색결과");
-            	System.out.println("이름 : " + rs.getString("name"));
-            	System.out.println("전화번호 : " + rs.getString("phoneNumber"));
-            	System.out.println("나이 : " + rs.getString("age"));
-            	index++;	
-            }
-            if(index == 0) {
-            	System.out.println("주소록에 사람이 없습니다");
-            }
-	}catch(Exception e) {
-        e.printStackTrace();
-    }return index;	
-}
+		String currentCategory = null;
+		
+		 try {
+		        conn = DBConnection.getConnection();
+		        String sql = "SELECT name, category, phoneNumber, age FROM mini WHERE u_idx = ? ORDER BY category ASC";
+		        pstmt = conn.prepareStatement(sql);
+		        pstmt.setString(1, idxNumber);
+		        ResultSet rs = pstmt.executeQuery();
+
+		        System.out.println("검색결과");
+		        System.out.println();
+
+		        while (rs.next()) {
+		            String category = rs.getString("category");
+		            if (!category.equals(currentCategory)) {
+		                System.out.println("카테고리: " + category);
+		                System.out.println();
+		                currentCategory = category;
+		            }
+
+		            System.out.println("이름 : " + rs.getString("name"));
+		            System.out.println("전화번호 : " + rs.getString("phoneNumber"));
+		            System.out.println("나이 : " + rs.getString("age"));
+		            System.out.println();
+		            index++;
+		        }
+
+		        if (index == 0) {
+		            System.out.println("주소록에 사람이 없습니다");
+		        }
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } 
+
+		    return index;
+		}
 }
