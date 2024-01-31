@@ -17,21 +17,22 @@ public class Insert {
 		ResultSet rs = null;
 		int uidx = 0;
 
-		try {
-			conn = DBConnection.getConnection();
-			String sql = "select * from user where u_id=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, idx);
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
+		try{
+		conn = DBConnection.getConnection();
+					String sql = "select * from user where u_id=?";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, idx);
+					rs = pstmt.executeQuery();
+		
+			if(rs.next()){
 				uidx = rs.getInt("u_idx");
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		}catch (Exception e) {
+		            e.printStackTrace();
 		}
 		return uidx;
 	}
+			
 
 	public void insert(Person person, int InsertIdx) {
 		Connection conn = null;
