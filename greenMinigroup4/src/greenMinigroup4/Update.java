@@ -13,13 +13,13 @@ public class Update {
 		
 		try {
         	conn = DBConnection.getConnection();
-        	String sql = "UPDATE mini SET name=?, age=?, gender=?, phoneNumber=?, MBTI=?, address=?, nickName=?, category=? WHERE u_idx=?";
+        	String sql = "UPDATE person SET name=?, age=?, gender=?, phoneNumber=?, MBTI=?, address=?, nickName=?, category=? WHERE u_idx=?";
             pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, person.getName());
-            pstmt.setString(2, person.getAge());
+            pstmt.setInt(2, person.getAge());
             pstmt.setString(3, person.getGender());
-            pstmt.setString(4, person.getPhoneNumber());
+            pstmt.setInt(4, person.getPhoneNumber());
             pstmt.setString(5, person.getMBTI());
             pstmt.setString(6, person.getAddress());
             pstmt.setString(7, person.getNickName());

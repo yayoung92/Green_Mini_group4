@@ -42,7 +42,7 @@ public class Insert {
 		if (!result) {
 			try {
 				conn = DBConnection.getConnection();
-				String sql = "insert into mini "
+				String sql = "insert into person "
 						+ "(name, age, gender, phoneNumber, MBTI, address, nickName, category, u_idx) "
 						+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				pstmt = conn.prepareStatement(sql);
@@ -77,16 +77,16 @@ public class Insert {
 		}
 	}
 
-	public boolean Find(String PNumber) {
-
+	// 주소록 등록시 휴대폰번호 중복 체크
+	public boolean Find(int PNumber) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "SELECT * FROM mini WHERE phoneNumber LIKE ?";
+			String sql = "SELECT * FROM person WHERE phoneNumber LIKE ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, PNumber);
+			pstmt.setInt(1, PNumber);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {

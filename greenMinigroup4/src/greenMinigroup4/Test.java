@@ -16,7 +16,7 @@ public class Test {
 		
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "UPDATE mini SET name=?, age=?, gender=?, phoneNumber=?, MBTI=?, address=?, nickName=?, category=? "
+			String sql = "UPDATE person SET name=?, age=?, gender=?, phoneNumber=?, MBTI=?, address=?, nickName=?, category=? "
 					+ "WHERE name=? and phoneNumber=? and u_idx=?";
 			pstmt = conn.prepareStatement(sql);
 			
