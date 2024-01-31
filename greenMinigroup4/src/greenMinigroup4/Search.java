@@ -35,19 +35,21 @@ public class Search {
 
 	}
 	*/
-	public void searchDetail(String name) {
+	public void searchDetail(String name,int u_idx) {
+		
+		
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		try {
 			con = DBConnection.getConnection();
-			
-			pstmt
-            = con.prepareStatement("SELECT * FROM person "
+
+            pstmt = con.prepareStatement("SELECT * FROM person "
             		+ "WHERE NAME=? ");
 			
-			pstmt.setString(1,name);
+			pstmt.setString(2,name);
+			pstmt.setInt(1,u_idx);
 			ResultSet result=pstmt.executeQuery();
 			while(result.next()) {
 				System.out.println("이름  :  "+result.getString("name"));
