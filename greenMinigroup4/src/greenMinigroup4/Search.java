@@ -35,7 +35,9 @@ public class Search {
 
 	}
 	*/
-	public void searchDetail(String name) {
+	public void searchDetail(String name,int u_idx) {
+		
+		
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -44,10 +46,10 @@ public class Search {
 			con = DBConnection.getConnection();
 			
 			pstmt
-            = con.prepareStatement("SELECT * FROM mini "
-            		+ "WHERE NAME=? ");
+            = con.prepareStatement("SELECT *from mini WHERE u_idx=? AND NAME=?");
 			
-			pstmt.setString(1,name);
+			pstmt.setString(2,name);
+			pstmt.setInt(1,u_idx);
 			ResultSet result=pstmt.executeQuery();
 			while(result.next()) {
 				System.out.println("이름  :  "+result.getString("name"));

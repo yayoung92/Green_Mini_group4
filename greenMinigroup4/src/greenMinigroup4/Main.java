@@ -67,12 +67,10 @@ public class Main {
 							System.out.println("<1.리스트>");
 							System.out.println();
 							
-							 int u_idx = insert.idx(id);
-							 int idxNumber = list.Number(u_idx);
-
-							 list.SearchNumber(Integer.toString(idxNumber));
+							
+							
 							 
-						        break;
+						       
 
 						case 2: // 등록하는 입력 창
 							
@@ -122,13 +120,15 @@ public class Main {
 							
 							break;
 						case 5:
+							int u_idx = insert.idx(id);
+							
 							System.out.println("<5.검색하기>");
 
 							System.out.print("  ●  이름을 입력하세요: ");
 							String name = scan.next();
 
 							
-							search.searchDetail(name);
+							search.searchDetail(name,u_idx);
 							
 							break;
 						case 6:
