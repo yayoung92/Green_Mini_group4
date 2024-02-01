@@ -67,11 +67,6 @@ public class Main {
 							System.out.println("<1.리스트>");
 							System.out.println();
 							
-							
-							
-							 
-						       
-
 						case 2: // 등록하는 입력 창
 							
 							System.out.println("<2.등록하기>");
@@ -86,16 +81,6 @@ public class Main {
 
 							System.out.println("<3.수정하기>");
 							System.out.println();
-
-							Test test = new Test();
-
-							System.out.println(" 수정할 사람의 이름을 입력:");
-							String UN = scan.next();
-							System.out.println(" 수정할 사람의 번호를 입력:");
-							String UP = scan.next();
-							int Uidx = insert.idx(id);
-							
-							test.test(UN, UP, Uidx);
 							
 							System.out.println();
 							System.out.println(" [ 수정되었습니다. ] ");
