@@ -80,10 +80,16 @@ public class Main {
 						case 3:// 수정하는 부분
 
 							System.out.println("<3.수정하기>");
-							System.out.println();
+							Update AllUpdate = new Update();
 							
-							System.out.println();
-							System.out.println(" [ 수정되었습니다. ] ");
+							System.out.println("바꿀 대상의 이름을 입력하시오>");
+							String OldName = scan.next();
+							System.out.println("바꿀 대상의 전화번호를 입력하시오>");
+							String OldPhone = scan.next();
+							int uIdx=insert.idx(id);
+							
+							AllUpdate.AllUpdate(OldName, OldPhone, uIdx);
+							System.out.println("[수정되었습니다]");
 							break;
 							
 						case 4:
@@ -159,9 +165,7 @@ public class Main {
 							break;
 						}
 					}
-
 				}
-
 			} else if(start==2) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
 				login.join();
@@ -170,8 +174,4 @@ public class Main {
 		}
 
 	}
-
-
-
-
 }
