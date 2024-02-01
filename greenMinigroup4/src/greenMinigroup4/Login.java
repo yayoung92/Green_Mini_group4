@@ -31,6 +31,7 @@ public class Login {
 				ConsoleTextColor.printColorln("회원정보가 없습니다.", "green");
 				return 0;
 			}
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
