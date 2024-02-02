@@ -69,7 +69,7 @@ public class Main {
 							System.out.println("<1.리스트>");
 							System.out.println();
 
-							list.listall();
+							list.listall(u_idx);
               break;
                 
 						case 2: // 등록하는 입력 창
@@ -115,9 +115,7 @@ public class Main {
 							System.out.print("  ●  이름을 입력하세요: ");
 							name = scan.next();
 
-							
-							search.searchDetail(name);
-							
+							search.searchDetail(name, u_idx);
 							break;
 						case 6:
 							// 종료하는 부분
@@ -171,13 +169,7 @@ public class Main {
 
 			} else if (start.equals("2")) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
-				System.out.print("  ●  아이디를 입력하세요: ");
-				String newId = scan.next();
-				
-				System.out.print("  ●  비밀번호를 입력하세요: ");
-				String newPassword = scan.next();
-				
-				login.join(newId, newPassword);		
+				login.join();		
 			} else
 				System.err.println("잘못 입력했습니다.");
 		}
