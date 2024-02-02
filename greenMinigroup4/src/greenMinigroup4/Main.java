@@ -116,6 +116,7 @@ public class Main {
 							name = scan.next();
 
 							search.searchDetail(name, u_idx);
+
 							break;
 						case 6:
 							// 종료하는 부분
@@ -126,7 +127,7 @@ public class Main {
 							// 설정하는 부분
 							System.out.println("<7.설정>");
 							System.out.println();
-							System.out.println("1.탈퇴하기  2.user 수정하기  3.로그아웃");
+							System.out.println("1.탈퇴하기  2.로그아웃");
 							System.out.print("번호 선택  :  ");
 							num = scan.nextInt();
 
@@ -149,10 +150,6 @@ public class Main {
 									System.out.println("회원정보가 일지하지 않습니다.");
 								}
 							} else if (num == 2) {
-								//  회원정보 수정하기
-
-								break stop;
-							} else if (num == 3) {
 								ConsoleTextColor.printColorln("로그아웃 되었습니다.", "purple");
 
 								break stop;
