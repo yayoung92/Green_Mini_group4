@@ -70,8 +70,9 @@ public class Main {
 							System.out.println();
 
 							list.listall(u_idx);
-              break;
-                
+							
+							break;
+ 
 						case 2: // 등록하는 입력 창
 
 							System.out.println("<2.등록하기>");
