@@ -70,8 +70,12 @@ public class Main {
 							System.out.println();
 
 							list.listall(u_idx);
+<<<<<<< HEAD
 							break;
 
+=======
+              break;
+>>>>>>> 10946b0f51b6c3f191c66d680da42c25665a2aef
                 
 						case 2: // 등록하는 입력 창
 
@@ -115,9 +119,13 @@ public class Main {
 
 							System.out.print("  ●  이름을 입력하세요: ");
 							name = scan.next();
+<<<<<<< HEAD
 							
 							search.searchDetail(name,u_idx);
 							
+=======
+
+>>>>>>> 10946b0f51b6c3f191c66d680da42c25665a2aef
 							search.searchDetail(name, u_idx);
 
 							break;
