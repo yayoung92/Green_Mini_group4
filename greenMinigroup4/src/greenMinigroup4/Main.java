@@ -64,8 +64,13 @@ public class Main {
 
 						switch (num) {
 						case 1:
+							
+							String name = null;
+							int u_idx=insert.idx(id);
 							System.out.println("<1.리스트>");
 							System.out.println();
+							
+							list.listall();
 							
 						case 2: // 등록하는 입력 창
 							
@@ -99,12 +104,12 @@ public class Main {
 							
 							break;
 						case 5:
-							int u_idx = insert.idx(id);
+							u_idx = insert.idx(id);
 							
 							System.out.println("<5.검색하기>");
 
 							System.out.print("  ●  이름을 입력하세요: ");
-							String name = scan.next();
+							name = scan.next();
 
 							
 							search.searchDetail(name,u_idx);

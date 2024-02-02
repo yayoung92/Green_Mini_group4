@@ -46,13 +46,13 @@ public class Search {
 			con = DBConnection.getConnection();
 
             pstmt = con.prepareStatement("SELECT * FROM person "
-            		+ "WHERE NAME=? ");
+            		+ "WHERE u_idx=? and NAME=? ");
 			
+            pstmt.setInt(1,u_idx);
 			pstmt.setString(2,name);
-			pstmt.setInt(1,u_idx);
 			ResultSet result=pstmt.executeQuery();
 			while(result.next()) {
-				System.out.println("이름  :  "+result.getString("name"));
+				System.out.println("이름  :  "+result.getString("na me"));
 				System.out.println("나이  :  "+result.getString("age"));
 				System.out.println("성별  :  "+result.getString("gender"));
 				System.out.println("번호  :  "+result.getString("phoneNumber"));
