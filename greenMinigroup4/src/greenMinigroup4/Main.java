@@ -13,25 +13,25 @@ public class Main {
 		Insert insert = new Insert();
 		Update up = new Update();
 		List list = new List();
-		
+
 		Delete delete = new Delete();
-		
-		G_Test g_test = new G_Test(); 
-		
-		
+
+		CategorySearch categorysearch = new CategorySearch();
+
+
 		boolean check = true;
-		int start = 0;
+		String start = null;
 
 		System.out.println("******************************************");
 		System.out.println("*             주소록 관리 프로그램             *");
 		System.out.println("******************************************");
-		
-		start :while (true) {
+
+		start: while (true) {
 			System.out.println("------------------------------------------");
 			System.out.println(" 1. 로그인           ||  2. 회원가입      ");
-			start = scan.nextInt();
+			start = scan.next();
 
-			if (start == 1) {
+			if (start.equals("1")) {
 				System.out.println("------------------------------------------");
 				System.out.println("          <      로그인 하기      >          ");
 				System.out.print("  ●  아이디를 입력하세요: ");
@@ -73,15 +73,15 @@ public class Main {
               break;
                 
 						case 2: // 등록하는 입력 창
-							
+
 							System.out.println("<2.등록하기>");
 							System.out.println();
 
 							int Insertidx = insert.idx(id);
-							insert.insert(person,Insertidx);
+							insert.insert(person, Insertidx);
 
 							break;
-							
+
 						case 3:// 수정하는 부분
 
 							System.out.println("<3.수정하기>");
@@ -98,24 +98,14 @@ public class Main {
 							System.out.println();
 							System.out.println(" [ 수정되었습니다. ] ");
 							break;
-							
+
 						case 4:
-	// 삭제하는 부분  이름과 번호 둘다 확인한다 || 동명의인도 가능하기 때문 || idx 값을 또 불러와보자
+							// 삭제하는 부분
 							System.out.println("<4.삭제하기>");
 							System.out.println();
+							
+							delete.deleteChoice(id);
 
-							System.out.print("삭제할 사람의 이름을 입력해주세요 : ");
-							String d = scan.next();
-							System.out.print("삭제할 사람의 번호를 입력해주세요 : ");	
-							String p = scan.next();
-							int idx = insert.idx(id);
-							
-							if(delete.deleteperson(d,p,delete.selectIdx(id))==1) {
-								System.out.println(" [ 삭제되었습니다. ] ");
-							} else if (delete.deleteperson(d,p,delete.selectIdx(id)) == 0) {
-								System.out.println("주소록에 없는 사람입니다.");
-							}
-							
 							break;
 						case 5:
 							u_idx = insert.idx(id);
@@ -133,42 +123,40 @@ public class Main {
 							// 종료하는 부분
 							System.out.println();
 							break stop;
-							
-							
+
 						case 7:
 							// 설정하는 부분
 							System.out.println("<7.설정>");
 							System.out.println();
-							System.out.println("1.탈퇴하기  2.user이름 수정하기  3.로그아웃");
+							System.out.println("1.탈퇴하기  2.user 수정하기  3.로그아웃");
 							System.out.print("번호 선택  :  ");
 							num = scan.nextInt();
 
-							if(num ==1) {
+							if (num == 1) {
 								System.out.print("id 를 입력해주세요 : ");
 								id = scan.next();
 								System.out.print("비밀번호 를 입력해주세요 : ");
 								password = scan.next();
-                                System.out.print("정말로 탈퇴하시겠습니까? < 1 : yes> : ");
-                                num = scan.nextInt();
-								
-								if(num==1) {
-									delete.deleteIdxPerson(delete.selectIdx(id));
-									if (delete.delete(id, password) == 1) {
-										System.out.println();
-										System.out.println("------------------------------------------");
-										System.out.println("회원정보가 삭제되었습니다.");
-										System.out.println("안녕히 가세요.");
-										System.out.println("------------------------------------------");
-										System.out.println("******************************************");
-										break start;
-									} else if (delete.delete(id, password) == 0) {
-										System.out.println("회원정보가 일지하지 않습니다.");
-									}
-								} 
-								
-							} else if(num == 3) {
+
+								delete.deleteIdxPerson(delete.selectIdx(id));
+								if (delete.delete(id, password) == 1) {
+									System.out.println();
+									System.out.println("------------------------------------------");
+									System.out.println("회원정보가 삭제되었습니다.");
+									System.out.println("안녕히 가세요.");
+									System.out.println("------------------------------------------");
+									System.out.println("******************************************");
+									break start;
+								} else if (delete.delete(id, password) == 0) {
+									System.out.println("회원정보가 일지하지 않습니다.");
+								}
+							} else if (num == 2) {
+								//  회원정보 수정하기
+
+								break stop;
+							} else if (num == 3) {
 								ConsoleTextColor.printColorln("로그아웃 되었습니다.", "purple");
-								
+
 								break stop;
 							} else
 								System.err.println("잘못 눌렀습니다.");
@@ -181,7 +169,7 @@ public class Main {
 
 				}
 
-			} else if(start==2) {
+			} else if (start.equals("2")) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
 				System.out.print("  ●  아이디를 입력하세요: ");
 				String newId = scan.next();
@@ -195,8 +183,5 @@ public class Main {
 		}
 
 	}
-
-
-
 
 }
