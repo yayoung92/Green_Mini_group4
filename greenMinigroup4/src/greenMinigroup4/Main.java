@@ -63,16 +63,15 @@ public class Main {
 
 						switch (num) {
 						case 1:
+							
+							String name = null;
+							int u_idx=insert.idx(id);
 							System.out.println("<1.리스트>");
 							System.out.println();
-							
-							 int u_idx = insert.idx(id);
-							 int idxNumber = list.Number(u_idx);
 
-							 list.SearchNumber(Integer.toString(idxNumber));
-							 
-						        break;
-
+							list.listall();
+              break;
+                
 						case 2: // 등록하는 입력 창
 							
 							System.out.println("<2.등록하기>");
@@ -93,9 +92,6 @@ public class Main {
 							System.out.println(" 수정할 사람의 전화번호를 입력:");
 							String OldPhone1 = scan.next();
 							int uIdx1 = insert.idx(id);
-//							System.out.println(OldName1);
-//							System.out.println(OldPhone1);
-//							System.out.println(uIdx1);
 							
 							up.AllUpdate(OldName1, OldPhone1, uIdx1);
 							
@@ -122,10 +118,12 @@ public class Main {
 							
 							break;
 						case 5:
+							u_idx = insert.idx(id);
+							
 							System.out.println("<5.검색하기>");
 
 							System.out.print("  ●  이름을 입력하세요: ");
-							String name = scan.next();
+							name = scan.next();
 
 							
 							search.searchDetail(name);
