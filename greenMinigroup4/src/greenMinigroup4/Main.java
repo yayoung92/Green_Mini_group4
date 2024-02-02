@@ -11,14 +11,13 @@ public class Main {
 		Search search = new Search();
 
 		Insert insert = new Insert();
-		Update update = new Update();
+		Update up = new Update();
 		List list = new List();
 		
 		Delete delete = new Delete();
 		
 		G_Test g_test = new G_Test(); 
 		
-		CategorySearch categorysearch = new CategorySearch();
 		
 		boolean check = true;
 		int start = 0;
@@ -69,9 +68,10 @@ public class Main {
 							int u_idx=insert.idx(id);
 							System.out.println("<1.리스트>");
 							System.out.println();
-							
+
 							list.listall();
-							
+              break;
+                
 						case 2: // 등록하는 입력 창
 							
 							System.out.println("<2.등록하기>");
@@ -86,19 +86,33 @@ public class Main {
 
 							System.out.println("<3.수정하기>");
 							System.out.println();
+
+							System.out.println(" 수정할 사람의 이름을 입력:");
+							String OldName1 = scan.next();
+							System.out.println(" 수정할 사람의 전화번호를 입력:");
+							String OldPhone1 = scan.next();
+							int uIdx1 = insert.idx(id);
+							
+							up.AllUpdate(OldName1, OldPhone1, uIdx1);
 							
 							System.out.println();
 							System.out.println(" [ 수정되었습니다. ] ");
 							break;
 							
 						case 4:
-						// 삭제하는 부분
+	// 삭제하는 부분  이름과 번호 둘다 확인한다 || 동명의인도 가능하기 때문 || idx 값을 또 불러와보자
 							System.out.println("<4.삭제하기>");
-							System.out.println();						
+							System.out.println();
+
+							System.out.print("삭제할 사람의 이름을 입력해주세요 : ");
+							String d = scan.next();
+							System.out.print("삭제할 사람의 번호를 입력해주세요 : ");	
+							String p = scan.next();
+							int idx = insert.idx(id);
 							
-							if(delete.deleteperson(delete.selectIdx(id))==1) {
+							if(delete.deleteperson(d,p,delete.selectIdx(id))==1) {
 								System.out.println(" [ 삭제되었습니다. ] ");
-							} else if (delete.deleteperson(delete.selectIdx(id)) == 0) {
+							} else if (delete.deleteperson(d,p,delete.selectIdx(id)) == 0) {
 								System.out.println("주소록에 없는 사람입니다.");
 							}
 							
@@ -112,7 +126,7 @@ public class Main {
 							name = scan.next();
 
 							
-							search.searchDetail(name,u_idx);
+							search.searchDetail(name);
 							
 							break;
 						case 6:
@@ -169,7 +183,13 @@ public class Main {
 
 			} else if(start==2) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
-				login.join();
+				System.out.print("  ●  아이디를 입력하세요: ");
+				String newId = scan.next();
+				
+				System.out.print("  ●  비밀번호를 입력하세요: ");
+				String newPassword = scan.next();
+				
+				login.join(newId, newPassword);		
 			} else
 				System.err.println("잘못 입력했습니다.");
 		}
