@@ -2,13 +2,12 @@ package greenMinigroup4;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.Scanner;
 
 import db.DBConnection;
 
 public class Update {
-
+	
 	public void AllUpdate(String OldName, String OldPhone, int uIdx) {
 		
 		Connection conn = null;
@@ -18,7 +17,7 @@ public class Update {
 		try {
 			conn = DBConnection.getConnection();
 			String sql = "UPDATE person SET name=?, age=?, gender=?, phoneNumber=?, MBTI=?, address=?, nickName=?, category=? "
-					+ "WHERE name=? and phoneNumber=? and u_idx=?";
+					+ "WHERE idx=?";
 			pstmt = conn.prepareStatement(sql);
 			
 			Scanner sc = new Scanner(System.in); 
@@ -40,9 +39,9 @@ public class Update {
 	            System.out.print(" 새로운 카테고리 입력: ");
 	            pstmt.setString(8, sc.next());
 	            
-	            pstmt.setString(9, OldName);
-	            pstmt.setString(10, OldPhone);
-	            pstmt.setInt(11, uIdx);
+//	            pstmt.setString(9, OldName);
+//	            pstmt.setString(10, OldPhone);
+	            pstmt.setInt(9, uIdx);
 
 	            pstmt.executeUpdate();
 			
