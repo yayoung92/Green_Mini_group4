@@ -22,12 +22,13 @@ public class CategorySearch {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				System.out.println("검색결과");
 				System.out.println();
-				System.out.println("이름 : " + rs.getString("name"));
-				System.out.println("나이 : " + rs.getString("age"));
-				System.out.println("전화번호 : " + rs.getString("phoneNumber"));
-
+				System.out.print("이름 : " + rs.getString("name") + "\t");
+				if(rs.getString("age").length()==1)
+					System.out.print("●나이 : " + rs.getString("age") + "\t\t");
+				else
+					System.out.print("●나이 : " + rs.getString("age") + "\t");
+				System.out.print("●전화번호 : " + rs.getString("phoneNumber") + "\n");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
