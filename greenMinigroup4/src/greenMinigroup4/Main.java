@@ -69,8 +69,9 @@ public class Main {
 							System.out.println("<1.리스트>");
 							System.out.println();
 
-							list.listall();
+							list.listall(u_idx);
 							break;
+
                 
 						case 2: // 등록하는 입력 창
 
@@ -117,6 +118,8 @@ public class Main {
 							
 							search.searchDetail(name,u_idx);
 							
+							search.searchDetail(name, u_idx);
+
 							break;
 						case 6:
 							// 종료하는 부분
@@ -166,7 +169,7 @@ public class Main {
 
 			} else if (start.equals("2")) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
-				login.join();
+				login.join();		
 			} else
 				System.err.println("잘못 입력했습니다.");
 		}
