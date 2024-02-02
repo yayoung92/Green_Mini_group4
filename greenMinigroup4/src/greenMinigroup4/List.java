@@ -15,7 +15,7 @@ public class List {
 		
 		try {
 			con = DBConnection.getConnection();
-			pstmt=con.prepareStatement("SELECT * FROM person ");
+			pstmt=con.prepareStatement("SELECT * FROM person where ");
 		
 		ResultSet result=pstmt.executeQuery();
 		System.out.println(" 이름 |  나이  |  성별  |       번호       | MBTI |  주소  |  별명  |  소속 ");

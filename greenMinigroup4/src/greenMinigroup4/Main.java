@@ -70,7 +70,7 @@ public class Main {
 							System.out.println();
 
 							list.listall();
-              break;
+							break;
                 
 						case 2: // 등록하는 입력 창
 
@@ -114,7 +114,6 @@ public class Main {
 
 							System.out.print("  ●  이름을 입력하세요: ");
 							name = scan.next();
-
 							
 							search.searchDetail(name,u_idx);
 							
