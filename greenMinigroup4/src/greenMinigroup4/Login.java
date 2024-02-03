@@ -47,7 +47,6 @@ public class Login {
 		String password = scan.next();
 
 		return new User(id, password);
-
 	}
 
 	// 회원가입 기능

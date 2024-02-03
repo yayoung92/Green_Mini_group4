@@ -128,29 +128,28 @@ public class Main {
 							System.out.println("<7.설정>");
 							System.out.println();
 							System.out.println("1.탈퇴하기  2.로그아웃");
-							System.out.print("번호 선택  :  ");
 							num = scan.nextInt();
 
 							if (num == 1) {
-								System.out.print("id 를 입력해주세요 : ");
+								System.out.print("  ●  아이디 를 입력해주세요 : ");
 								id = scan.next();
-								System.out.print("비밀번호 를 입력해주세요 : ");
+								System.out.print("  ●  비밀번호 를 입력해주세요 : ");
 								password = scan.next();
 
 								delete.deleteIdxPerson(delete.selectIdx(id));
 								if (delete.delete(id, password) == 1) {
 									System.out.println();
 									System.out.println("------------------------------------------");
-									System.out.println("회원정보가 삭제되었습니다.");
+									System.out.println(" [ 회원정보가 삭제되었습니다. ] ");
 									System.out.println("안녕히 가세요.");
 									System.out.println("------------------------------------------");
 									System.out.println("******************************************");
 									break start;
 								} else if (delete.delete(id, password) == 0) {
-									System.out.println("회원정보가 일지하지 않습니다.");
+									System.err.println(" [ 회원정보가 일지하지 않습니다. ]");
 								}
 							} else if (num == 2) {
-								ConsoleTextColor.printColorln("로그아웃 되었습니다.", "purple");
+								ConsoleTextColor.printColorln(" [ 로그아웃 되었습니다. ]", "purple");
 
 								break stop;
 							} else
