@@ -66,7 +66,7 @@ public class Delete {
             }
 
         }catch (Exception e){
-            e.printStackTrace();;
+            e.printStackTrace();
         }
         return idx;
     }

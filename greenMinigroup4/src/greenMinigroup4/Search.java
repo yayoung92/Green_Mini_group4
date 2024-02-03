@@ -11,30 +11,7 @@ import db.DBConnection;
 
 
 public class Search {
-/*
-	public void search(String name) {
-	
-			Connection con = null;
-		PreparedStatement pstmt = null;
 
-		try {
-			con = DriverManager.getConnection(Connect.url, Connect.user, Connect.password);
-			
-			pstmt
-            = con.prepareStatement("SELECT*FROM member\r\n"
-            		+ "WHERE NAME=?");
-			
-			pstmt.setString(1,name); // ?에 들어갈 데이터
-			ResultSet result=pstmt.executeQuery();
-			System.out.println(result.getString("name"));
-			System.out.println(result.getString("email"));
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-	*/
 	public void searchDetail(String name,int u_idx) {
 		
 		
