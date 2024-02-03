@@ -33,7 +33,7 @@ public class Delete {
 
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "delete from user where u_id=? and u_passphoneNumber word=?";
+			String sql = "delete from user where u_id=? and u_password=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
 			pstmt.setString(2, password);
