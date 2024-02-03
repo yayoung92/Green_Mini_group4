@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import db.DBConnection;
+import infor.Person;
 
 public class Insert { // u_idx 값을 가져오는것
 

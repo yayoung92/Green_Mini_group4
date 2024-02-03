@@ -2,6 +2,9 @@ package greenMinigroup4;
 
 import java.util.Scanner;
 
+import infor.Person;
+import infor.User;
+
 public class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);

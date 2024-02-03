@@ -1,4 +1,4 @@
-package greenMinigroup4;
+package infor;
 
 public class Person {
 
@@ -109,13 +109,6 @@ public class Person {
 	public void setU_idx(int u_idx) {
 		this.u_idx = u_idx;
 	}
-
-//	@Override
-//	public String toString() {
-//		return "Person [idx=" + idx + ", name=" + name + ", age=" + age + ", gender=" + gender + ", phoneNumber="
-//				+ phoneNumber + ", MBTI=" + MBTI + ", address=" + address + ", nickName=" + nickName + ", category="
-//				+ category + ", u_idx=" + u_idx + "]";
-//	}
 
 	@Override
 	public String toString() {

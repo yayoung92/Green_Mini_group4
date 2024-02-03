@@ -1,4 +1,4 @@
-package greenMinigroup4;
+package infor;
 
 public class User {
 	public int idx;
