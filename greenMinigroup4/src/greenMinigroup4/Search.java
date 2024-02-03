@@ -52,7 +52,7 @@ public class Search {
 			pstmt.setString(2,name);
 			ResultSet result=pstmt.executeQuery();
 			while(result.next()) {
-				System.out.println("이름  :  "+result.getString("na me"));
+				System.out.println("이름  :  "+result.getString("name"));
 				System.out.println("나이  :  "+result.getString("age"));
 				System.out.println("성별  :  "+result.getString("gender"));
 				System.out.println("번호  :  "+result.getString("phoneNumber"));
