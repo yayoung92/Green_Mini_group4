@@ -111,12 +111,20 @@ public class Main {
 							u_idx = insert.idx(id);
 
 							System.out.println("<5.검색하기>");
+							System.out.println("1.이름으로 검색하기  2.카테고리고 검색하기");
+							num = scan.nextInt();
+							
+							if(num==1) {
+								System.out.print("  ●  이름을 입력하세요: ");
+								name = scan.next();
 
-							System.out.print("  ●  이름을 입력하세요: ");
-							name = scan.next();
-
-							search.searchDetail(name, u_idx);
-
+								search.searchDetail(name, u_idx);
+								
+							}else if(num==2) {
+								System.out.print("  ●  카테고리를 입력하세요: ");
+								name = scan.next();
+								categorysearch.categorysearch(name, u_idx);
+							}
 							break;
 						case 6:
 							// 종료하는 부분
@@ -153,10 +161,10 @@ public class Main {
 
 								break stop;
 							} else
-								System.err.println("잘못 눌렀습니다.");
+								System.err.println(" [ 잘못 눌렀습니다. ]");
 							break;
 						default:
-							System.err.println("잘못 입력했습니다.");
+							System.err.println(" [ 잘못 입력했습니다. ]");
 							break;
 						}
 					}
@@ -167,7 +175,7 @@ public class Main {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
 				login.join();
 			} else
-				System.err.println("잘못 입력했습니다.");
+				System.err.println(" [ 잘못 입력했습니다. ]");
 		}
 
 	}
