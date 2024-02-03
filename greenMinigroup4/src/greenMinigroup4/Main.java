@@ -11,7 +11,7 @@ public class Main {
 		Search search = new Search();
 
 		Insert insert = new Insert();
-		Update up = new Update();
+		Update update = new Update();
 		List list = new List();
 
 		Delete delete = new Delete();
@@ -88,12 +88,13 @@ public class Main {
 							System.out.println();
 
 							System.out.println(" 수정할 사람의 이름을 입력:");
-							String OldName1 = scan.next();
-							System.out.println(" 수정할 사람의 전화번호를 입력:");
-							String OldPhone1 = scan.next();
-							int uIdx1 = insert.idx(id);
-
-							up.AllUpdate(OldName1, OldPhone1, uIdx1);
+							String Name = scan.next();
+							System.out.println(" 수정할 사람의 번호를 입력:");
+							String Phone = scan.next();
+							int Uidx = insert.idx(id);
+							
+							update.update(Name, Phone, Uidx);
+							System.out.println("수정되었습니다");
 
 							System.out.println();
 							System.out.println(" [ 수정되었습니다. ] ");
