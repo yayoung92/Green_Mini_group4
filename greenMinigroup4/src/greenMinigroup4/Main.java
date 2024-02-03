@@ -18,7 +18,6 @@ public class Main {
 
 		CategorySearch categorysearch = new CategorySearch();
 
-
 		boolean check = true;
 		String start = null;
 
@@ -63,21 +62,20 @@ public class Main {
 
 						switch (num) {
 						case 1:
-							
+
 							String name = null;
-							int u_idx=insert.idx(id);
+							int u_idx = insert.idx(id);
 							System.out.println("<1.리스트>");
 							System.out.println();
 
 							list.listall(u_idx);
-							
+
 							break;
- 
+
 						case 2: // 등록하는 입력 창
 
 							System.out.println("<2.등록하기>");
 							System.out.println();
-							
 
 							int Insertidx = insert.idx(id);
 							insert.insert(person, Insertidx);
@@ -94,9 +92,9 @@ public class Main {
 							System.out.println(" 수정할 사람의 전화번호를 입력:");
 							String OldPhone1 = scan.next();
 							int uIdx1 = insert.idx(id);
-							
+
 							up.AllUpdate(OldName1, OldPhone1, uIdx1);
-							
+
 							System.out.println();
 							System.out.println(" [ 수정되었습니다. ] ");
 							break;
@@ -105,13 +103,13 @@ public class Main {
 							// 삭제하는 부분
 							System.out.println("<4.삭제하기>");
 							System.out.println();
-							
+
 							delete.deleteChoice(id);
 
 							break;
 						case 5:
 							u_idx = insert.idx(id);
-							
+
 							System.out.println("<5.검색하기>");
 
 							System.out.print("  ●  이름을 입력하세요: ");
@@ -168,7 +166,7 @@ public class Main {
 
 			} else if (start.equals("2")) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
-				login.join();		
+				login.join();
 			} else
 				System.err.println("잘못 입력했습니다.");
 		}

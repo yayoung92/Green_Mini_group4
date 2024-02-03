@@ -33,7 +33,6 @@ public class Insert { // u_idx 값을 가져오는것
 		return uidx;
 	}
 
-
 	public boolean Find(String PNumber) { // 휴대폰 번호는 중복으로 안되게 한다
 
 		Connection conn = null;
@@ -54,6 +53,7 @@ public class Insert { // u_idx 값을 가져오는것
 		return false;
 
 	}
+
 	public void insert(Person person, int InsertIdx) { // 등록하는 부분
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -63,21 +63,20 @@ public class Insert { // u_idx 값을 가져오는것
 		System.out.print(" -  이름 : ");
 		p.setName(scanner.next());
 		System.out.print(" -  나이 : ");
-		p.setAge( scanner.nextInt());
+		p.setAge(scanner.nextInt());
 		System.out.print(" -  성별 : ");
-		p.setGender( scanner.next());
+		p.setGender(scanner.next());
 		System.out.print(" -  전화번호 : ");
 		p.setPhoneNumber(scanner.next());
 		System.out.print(" -  MBTI : ");
-		p.setMBTI( scanner.next());
+		p.setMBTI(scanner.next());
 		System.out.print(" -  주소 : ");
-		p.setAddress( scanner.next());
+		p.setAddress(scanner.next());
 		System.out.print(" -  별명 : ");
-		p.setNickName( scanner.next());
+		p.setNickName(scanner.next());
 		System.out.print(" -  카테고리 : ");
-		p.setCategory( scanner.next());
-		
-		
+		p.setCategory(scanner.next());
+
 		boolean result = Find(p.getPhoneNumber());
 
 		if (result == false) {
@@ -96,21 +95,17 @@ public class Insert { // u_idx 값을 가져오는것
 				pstmt.setString(6, p.getAddress());
 				pstmt.setString(7, p.getNickName());
 				pstmt.setString(8, p.getCategory());
-				pstmt.setInt(9,InsertIdx);
+				pstmt.setInt(9, InsertIdx);
 				pstmt.executeUpdate();
 				System.out.println();
 				System.out.println(" [ 등록되었습니다 ] ");
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("[ 중복된 전화번호입니다 ]");
+			System.err.println("[ 중복된 전화번호입니다 ]");
 		}
 	}
-	
-	
-		
-	}
 
-
+}
