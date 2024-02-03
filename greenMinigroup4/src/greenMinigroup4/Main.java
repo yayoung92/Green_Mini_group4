@@ -77,6 +77,7 @@ public class Main {
 
 							System.out.println("<2.등록하기>");
 							System.out.println();
+							
 
 							int Insertidx = insert.idx(id);
 							insert.insert(person, Insertidx);
