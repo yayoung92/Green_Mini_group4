@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.Scanner;
 
 import db.DBConnection;
+import infor.User;
 
 public class Login {
 	User user = new User();
