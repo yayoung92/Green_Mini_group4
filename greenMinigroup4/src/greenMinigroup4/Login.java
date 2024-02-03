@@ -26,7 +26,7 @@ public class Login {
 
 			if (rs.next()) {
 
-			}else {
+			} else {
 				ConsoleTextColor.printColorln("회원정보가 없습니다.", "green");
 				return 0;
 			}
@@ -35,7 +35,7 @@ public class Login {
 		}
 		return 1;
 	}
-	
+
 	// 회원가입 정보 받는 코드
 	public User inputUser() {
 		Scanner scan = new Scanner(System.in);
@@ -45,11 +45,11 @@ public class Login {
 
 		System.out.print("  ●  비밀번호를 입력하세요: ");
 		String password = scan.next();
-		
+
 		return new User(id, password);
-		
+
 	}
-	
+
 	// 회원가입 기능
 	public void join() {
 		User user = this.inputUser();
@@ -66,7 +66,7 @@ public class Login {
 				pstmt.setString(1, user.getUserId());
 				pstmt.setString(2, user.getUserPassword());
 				pstmt.executeUpdate();
-				
+
 				System.out.println();
 				System.out.println("==   성공! 회원가입 되었습니다.   ==");
 				System.out.println();
@@ -79,6 +79,7 @@ public class Login {
 			System.out.println();
 		}
 	}
+
 	// 아이디 중복 확인 기능
 	public boolean checkID(String name) {
 		Connection conn = null;

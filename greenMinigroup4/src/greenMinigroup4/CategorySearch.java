@@ -24,7 +24,7 @@ public class CategorySearch {
 			while (rs.next()) {
 				System.out.println();
 				System.out.print("이름 : " + rs.getString("name") + "\t");
-				if(rs.getString("age").length()==1)
+				if (rs.getString("age").length() == 1)
 					System.out.print("●나이 : " + rs.getString("age") + "\t\t");
 				else
 					System.out.print("●나이 : " + rs.getString("age") + "\t");
