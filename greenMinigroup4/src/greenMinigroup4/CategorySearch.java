@@ -15,7 +15,7 @@ public class CategorySearch {
 
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "SELECT * FROM mini WHERE category LIKE ? and u_idx LIKE ?";
+			String sql = "SELECT * FROM person WHERE category LIKE ? and u_idx LIKE ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, category);
 			pstmt.setInt(2, categoryidx);
@@ -23,7 +23,7 @@ public class CategorySearch {
 
 			while (rs.next()) {
 				System.out.println();
-				System.out.print("이름 : " + rs.getString("name") + "\t");
+				System.out.print("●이름 : " + rs.getString("name") + "\t");
 				if (rs.getString("age").length() == 1)
 					System.out.print("●나이 : " + rs.getString("age") + "\t\t");
 				else
@@ -33,7 +33,6 @@ public class CategorySearch {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }
