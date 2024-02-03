@@ -112,7 +112,7 @@ public class Main {
 							u_idx = insert.idx(id);
 
 							System.out.println("<5.검색하기>");
-							System.out.println("1.이름으로 검색하기  2.카테고리고 검색하기");
+							System.out.println("1.이름으로 검색하기  2.카테고리로 검색하기");
 							num = scan.nextInt();
 							
 							if(num==1) {
