@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS `person` (
   `idx` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `age` varchar(50) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
   `gender` varchar(50) DEFAULT NULL,
   `phoneNumber` varchar(50) DEFAULT NULL,
   `MBTI` varchar(50) DEFAULT NULL,
