@@ -37,7 +37,7 @@ public class List {
 				System.out.println(result.getString("name") + "\t" + result.getString("age") + "\t"
 						+ result.getString("gender") + "\t" + result.getString("phoneNumber") + "\t"
 						+ result.getString("MBTI") + "\t" + result.getString("address") + "\t"
-						+ result.getString("nickName") + "\t");
+						+ result.getString("nickName") + "\t" + result.getString("category") + "\t");
 				System.out.println();
 			}
 
