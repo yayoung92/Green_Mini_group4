@@ -114,10 +114,11 @@ public class Main {
 
 							System.out.print("  ●  이름을 입력하세요: ");
 							name = scan.next();
-
+							
 							search.searchDetail(name, u_idx);
 
 							break;
+
 						case 6:
 							// 종료하는 부분
 							System.out.println();
@@ -171,6 +172,11 @@ public class Main {
 				System.err.println("잘못 입력했습니다.");
 		}
 
+	}
+
+	private static void searchDetail(String name, int u_idx) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
