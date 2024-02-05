@@ -1,6 +1,18 @@
-package greenMinigroup4;
+package controller;
 
 import java.util.Scanner;
+
+import greenMinigroup4.CategorySearch;
+import greenMinigroup4.ConsoleTextColor;
+import greenMinigroup4.Delete;
+import greenMinigroup4.Insert;
+import greenMinigroup4.Join;
+import greenMinigroup4.List;
+import greenMinigroup4.Login;
+import greenMinigroup4.Search;
+import greenMinigroup4.Update;
+import infor.Person;
+import infor.User;
 
 public class Main {
 	public static void main(String[] args) {
@@ -8,14 +20,12 @@ public class Main {
 		User user = new User();
 		Person person = new Person();
 		Login login = new Login();
+		Join join = new Join();
 		Search search = new Search();
-
 		Insert insert = new Insert();
-		Update up = new Update();
+		Update update = new Update();
 		List list = new List();
-
 		Delete delete = new Delete();
-
 		CategorySearch categorysearch = new CategorySearch();
 
 		boolean check = true;
@@ -61,8 +71,7 @@ public class Main {
 						System.out.println();
 
 						switch (num) {
-						case 1:
-
+						case 1: // 리스트 확인하는 창
 							String name = null;
 							int u_idx = insert.idx(id);
 							System.out.println("<1.리스트>");
@@ -73,7 +82,6 @@ public class Main {
 							break;
 
 						case 2: // 등록하는 입력 창
-
 							System.out.println("<2.등록하기>");
 							System.out.println();
 
@@ -83,82 +91,88 @@ public class Main {
 							break;
 
 						case 3:// 수정하는 부분
-
 							System.out.println("<3.수정하기>");
 							System.out.println();
 
 							System.out.println(" 수정할 사람의 이름을 입력:");
-							String OldName1 = scan.next();
-							System.out.println(" 수정할 사람의 전화번호를 입력:");
-							String OldPhone1 = scan.next();
-							int uIdx1 = insert.idx(id);
+							String Name = scan.next();
+							System.out.println(" 수정할 사람의 번호를 입력:");
+							String Phone = scan.next();
+							int Uidx = insert.idx(id);
 
-							up.AllUpdate(OldName1, OldPhone1, uIdx1);
+							update.update(Name, Phone, Uidx);
+							System.out.println("수정되었습니다");
 
 							System.out.println();
 							System.out.println(" [ 수정되었습니다. ] ");
 							break;
 
-						case 4:
-							// 삭제하는 부분
+						case 4: // 삭제하는 부분
 							System.out.println("<4.삭제하기>");
 							System.out.println();
 
 							delete.deleteChoice(id);
 
 							break;
-						case 5:
+
+						case 5: // 검색하는 부분
 							u_idx = insert.idx(id);
 
 							System.out.println("<5.검색하기>");
+							System.out.println("1.이름으로 검색하기  2.카테고리로 검색하기");
+							num = scan.nextInt();
 
-							System.out.print("  ●  이름을 입력하세요: ");
-							name = scan.next();
-							
-							search.searchDetail(name, u_idx);
+							if (num == 1) {
+								System.out.print("  ●  이름을 입력하세요: ");
+								name = scan.next();
 
+								search.searchDetail(name, u_idx);
+
+							} else if (num == 2) {
+								System.out.print("  ●  카테고리를 입력하세요: ");
+								name = scan.next();
+								categorysearch.categorysearch(name, u_idx);
+							}
 							break;
 
 						case 6:
 							// 종료하는 부분
-							System.out.println();
-							break stop;
+							break start;
 
 						case 7:
 							// 설정하는 부분
 							System.out.println("<7.설정>");
 							System.out.println();
 							System.out.println("1.탈퇴하기  2.로그아웃");
-							System.out.print("번호 선택  :  ");
 							num = scan.nextInt();
 
 							if (num == 1) {
-								System.out.print("id 를 입력해주세요 : ");
+								System.out.print("  ●  아이디 를 입력해주세요 : ");
 								id = scan.next();
-								System.out.print("비밀번호 를 입력해주세요 : ");
+								System.out.print("  ●  비밀번호 를 입력해주세요 : ");
 								password = scan.next();
 
 								delete.deleteIdxPerson(delete.selectIdx(id));
 								if (delete.delete(id, password) == 1) {
 									System.out.println();
 									System.out.println("------------------------------------------");
-									System.out.println("회원정보가 삭제되었습니다.");
+									System.out.println(" [ 회원정보가 삭제되었습니다. ] ");
 									System.out.println("안녕히 가세요.");
 									System.out.println("------------------------------------------");
 									System.out.println("******************************************");
 									break start;
 								} else if (delete.delete(id, password) == 0) {
-									System.out.println("회원정보가 일지하지 않습니다.");
+									System.err.println(" [ 회원정보가 일지하지 않습니다. ]");
 								}
 							} else if (num == 2) {
-								ConsoleTextColor.printColorln("로그아웃 되었습니다.", "purple");
+								ConsoleTextColor.printColorln(" [ 로그아웃 되었습니다. ]", "purple");
 
 								break stop;
 							} else
-								System.err.println("잘못 눌렀습니다.");
+								System.err.println(" [ 잘못 눌렀습니다. ]");
 							break;
 						default:
-							System.err.println("잘못 입력했습니다.");
+							System.err.println(" [ 잘못 입력했습니다. ]");
 							break;
 						}
 					}
@@ -167,11 +181,11 @@ public class Main {
 
 			} else if (start.equals("2")) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
-				login.join();
+				join.join();
 			} else
-				System.err.println("잘못 입력했습니다.");
+				System.err.println(" [ 잘못 입력했습니다. ]");
 		}
-
+		System.out.println(" =========  프로그램이 종료되었습니다.  ========= ");
 	}
 
 	private static void searchDetail(String name, int u_idx) {

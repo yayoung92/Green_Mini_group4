@@ -8,16 +8,15 @@ import db.DBConnection;
 
 public class Update {
 
-	public void AllUpdate(String OldName, String OldPhone, int uIdx) {
+	public void update(String oldName, String oldPhone, int u_idx) {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		int result = 0;
 
 		try {
 			conn = DBConnection.getConnection();
 			String sql = "UPDATE person SET name=?, age=?, gender=?, phoneNumber=?, MBTI=?, address=?, nickName=?, category=? "
-					+ "WHERE idx=?";
+					+ "WHERE name=? and phoneNumber=? and u_idx=?";
 			pstmt = conn.prepareStatement(sql);
 
 			Scanner sc = new Scanner(System.in);
@@ -25,7 +24,7 @@ public class Update {
 			System.out.print(" 새로운 이름 입력: ");
 			pstmt.setString(1, sc.next());
 			System.out.print(" 새로운 나이 입력: ");
-			pstmt.setString(2, sc.next());
+			pstmt.setInt(2, sc.nextInt());
 			System.out.print(" 새로운 성별 입력: ");
 			pstmt.setString(3, sc.next());
 			System.out.print(" 새로운 전화번호 입력: ");
@@ -39,16 +38,22 @@ public class Update {
 			System.out.print(" 새로운 카테고리 입력: ");
 			pstmt.setString(8, sc.next());
 
-//	            pstmt.setString(9, OldName);
-//	            pstmt.setString(10, OldPhone);
-			pstmt.setInt(9, uIdx);
+			pstmt.setString(9, oldName);
+			pstmt.setString(10, oldPhone);
+			pstmt.setInt(11, u_idx);
 
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-
 	}
 
 }

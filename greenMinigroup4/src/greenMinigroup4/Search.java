@@ -25,7 +25,9 @@ public class Search {
 			pstmt.setInt(1, u_idx);
 			pstmt.setString(2, name);
 			ResultSet result = pstmt.executeQuery();
+
 			int a=0;
+
 
 			while (result.next()) {
 				System.out.println("이름  :  " + result.getString("name"));
