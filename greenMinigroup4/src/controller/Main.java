@@ -1,7 +1,16 @@
-package greenMinigroup4;
+package controller;
 
 import java.util.Scanner;
 
+import greenMinigroup4.CategorySearch;
+import greenMinigroup4.ConsoleTextColor;
+import greenMinigroup4.Delete;
+import greenMinigroup4.Insert;
+import greenMinigroup4.Join;
+import greenMinigroup4.List;
+import greenMinigroup4.Login;
+import greenMinigroup4.Search;
+import greenMinigroup4.Update;
 import infor.Person;
 import infor.User;
 
@@ -11,12 +20,12 @@ public class Main {
 		User user = new User();
 		Person person = new Person();
 		Login login = new Login();
+		Join join = new Join();
 		Search search = new Search();
 
 		Insert insert = new Insert();
 		Update update = new Update();
 		List list = new List();
-
 		Delete delete = new Delete();
 
 		CategorySearch categorysearch = new CategorySearch();
@@ -64,8 +73,7 @@ public class Main {
 						System.out.println();
 
 						switch (num) {
-						case 1:
-
+						case 1: // 리스트 확인하는 창
 							String name = null;
 							int u_idx = insert.idx(id);
 							System.out.println("<1.리스트>");
@@ -76,7 +84,6 @@ public class Main {
 							break;
 
 						case 2: // 등록하는 입력 창
-
 							System.out.println("<2.등록하기>");
 							System.out.println();
 
@@ -86,7 +93,6 @@ public class Main {
 							break;
 
 						case 3:// 수정하는 부분
-
 							System.out.println("<3.수정하기>");
 							System.out.println();
 
@@ -103,15 +109,15 @@ public class Main {
 							System.out.println(" [ 수정되었습니다. ] ");
 							break;
 
-						case 4:
-							// 삭제하는 부분
+						case 4: // 삭제하는 부분							
 							System.out.println("<4.삭제하기>");
 							System.out.println();
 
 							delete.deleteChoice(id);
 
 							break;
-						case 5:
+							
+						case 5: // 검색하는 부분
 							u_idx = insert.idx(id);
 
 							System.out.println("<5.검색하기>");
@@ -130,6 +136,7 @@ public class Main {
 								categorysearch.categorysearch(name, u_idx);
 							}
 							break;
+							
 						case 6:
 							// 종료하는 부분
 							System.out.println();
@@ -177,7 +184,7 @@ public class Main {
 
 			} else if (start.equals("2")) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
-				login.join();
+				join.join();
 			} else
 				System.err.println(" [ 잘못 입력했습니다. ]");
 		}
