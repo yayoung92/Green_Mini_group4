@@ -22,12 +22,10 @@ public class Main {
 		Login login = new Login();
 		Join join = new Join();
 		Search search = new Search();
-
 		Insert insert = new Insert();
 		Update update = new Update();
 		List list = new List();
 		Delete delete = new Delete();
-
 		CategorySearch categorysearch = new CategorySearch();
 
 		boolean check = true;
