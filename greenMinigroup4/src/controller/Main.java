@@ -95,14 +95,34 @@ public class Main {
 							System.out.println();
 
 							System.out.println(" 수정할 사람의 이름을 입력:");
-							String Name = scan.next();
-							System.out.println(" 수정할 사람의 번호를 입력:");
-							String Phone = scan.next();
-							int Uidx = insert.idx(id);
-
-							update.update(Name, Phone, Uidx);
-							System.out.println("수정되었습니다");
-
+							String OldName1 = scan.next();
+							System.out.println(" 수정할 사람의 전화번호를 입력:");
+							String OldPhone1 = scan.next();
+							int uIdx1 = insert.idx(id);
+							
+							System.out.println("수정하고자 하는 것을 고르시오");
+							System.out.println("1.전체수정 2.이름 3.나이 4.성별 5.전화번호 6.MBTI 7.주소 8.별명 9.카테고리 ");
+							int num1 = 0;
+							num1 = scan.nextInt();
+							if(num1==1) {
+								update.AllUpdate(OldName1, OldPhone1, uIdx1);
+							}else if(num1==2){
+								update.NameUpdate(OldName1, OldPhone1, uIdx1);
+							}else if(num1==3){
+								update.AgeUpdate(OldName1, OldPhone1, uIdx1);
+							}else if(num1==4){
+								update.GenderUpdate(OldName1, OldPhone1, uIdx1);
+							}else if(num1==5){
+								update.PhonenumberUpdate(OldName1, OldPhone1, uIdx1);
+							}else if(num1==6){
+								update.MBTIUpdate(OldName1, OldPhone1, uIdx1);
+							}else if(num1==7){
+								update.AddressUpdate(OldName1, OldPhone1, uIdx1);
+							}else if(num1==8){
+								update.NicknameUpdate(OldName1, OldPhone1, uIdx1);
+							}else if(num1==9){
+								update.CategoryUpdate(OldName1, OldPhone1, uIdx1);
+							}
 							System.out.println();
 							System.out.println(" [ 수정되었습니다. ] ");
 							break;
