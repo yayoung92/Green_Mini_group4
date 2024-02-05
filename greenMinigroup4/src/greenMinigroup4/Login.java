@@ -12,7 +12,7 @@ public class Login {
 	User user = new User();
 
 	// 로그인 기능
-	public int login(String name, String pw) {
+	public int login(String id, String password) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -21,8 +21,8 @@ public class Login {
 			conn = DBConnection.getConnection();
 			String sql = "select * from user where u_id=? and u_password=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
-			pstmt.setString(2, pw);
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
