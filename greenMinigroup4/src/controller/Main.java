@@ -99,7 +99,7 @@ public class Main {
 							System.out.println(" 수정할 사람의 번호를 입력:");
 							String Phone = scan.next();
 							int Uidx = insert.idx(id);
-							
+
 							update.update(Name, Phone, Uidx);
 							System.out.println("수정되었습니다");
 
@@ -107,38 +107,37 @@ public class Main {
 							System.out.println(" [ 수정되었습니다. ] ");
 							break;
 
-						case 4: // 삭제하는 부분							
+						case 4: // 삭제하는 부분
 							System.out.println("<4.삭제하기>");
 							System.out.println();
 
 							delete.deleteChoice(id);
 
 							break;
-							
+
 						case 5: // 검색하는 부분
 							u_idx = insert.idx(id);
 
 							System.out.println("<5.검색하기>");
 							System.out.println("1.이름으로 검색하기  2.카테고리로 검색하기");
 							num = scan.nextInt();
-							
-							if(num==1) {
+
+							if (num == 1) {
 								System.out.print("  ●  이름을 입력하세요: ");
 								name = scan.next();
 
 								search.searchDetail(name, u_idx);
-								
-							}else if(num==2) {
+
+							} else if (num == 2) {
 								System.out.print("  ●  카테고리를 입력하세요: ");
 								name = scan.next();
 								categorysearch.categorysearch(name, u_idx);
 							}
 							break;
-							
+
 						case 6:
 							// 종료하는 부분
-							System.out.println();
-							break stop;
+							break start;
 
 						case 7:
 							// 설정하는 부분
@@ -186,7 +185,7 @@ public class Main {
 			} else
 				System.err.println(" [ 잘못 입력했습니다. ]");
 		}
-
+		System.out.println(" =========  프로그램이 종료되었습니다.  ========= ");
 	}
 
 }
