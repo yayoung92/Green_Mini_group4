@@ -34,16 +34,17 @@ public class Insert { // u_idx 값을 가져오는것
 		return uidx;
 	}
 
-	public boolean Find(String PNumber) { // 휴대폰 번호는 중복으로 안되게 한다
+	public boolean Find(String PNumber, int u_idx) { // 휴대폰 번호는 중복으로 안되게 한다
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "SELECT * FROM person WHERE phoneNumber = ?";
+			String sql = "SELECT * FROM person WHERE phoneNumber = ? and u_idx=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, PNumber);
+			pstmt.setInt(2, u_idx);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return true;
@@ -78,7 +79,7 @@ public class Insert { // u_idx 값을 가져오는것
 		System.out.print(" -  카테고리 : ");
 		p.setCategory(scanner.next());
 
-		boolean result = Find(p.getPhoneNumber());
+		boolean result = Find(p.getPhoneNumber(), InsertIdx);
 
 		if (result == false) {
 			try {
