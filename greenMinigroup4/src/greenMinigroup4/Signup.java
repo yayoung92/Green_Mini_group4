@@ -8,7 +8,7 @@ import java.util.Scanner;
 import db.DBConnection;
 import infor.User;
 
-public class Join {
+public class Signup {
 	private Login cli = new Login();
 
 	// 회원가입 기능
