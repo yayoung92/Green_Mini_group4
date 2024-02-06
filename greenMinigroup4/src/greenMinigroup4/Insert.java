@@ -105,6 +105,7 @@ public class Insert { // u_idx 값을 가져오는것
 				e.printStackTrace();
 			}
 		} else {
+			System.out.println();
 			System.err.println("[ 중복된 전화번호입니다 ]");
 		}
 	}

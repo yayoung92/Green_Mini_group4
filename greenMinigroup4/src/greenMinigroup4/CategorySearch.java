@@ -12,6 +12,7 @@ public class CategorySearch {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		int a = 0;
 
 		try {
 			conn = DBConnection.getConnection();
@@ -29,6 +30,10 @@ public class CategorySearch {
 				else
 					System.out.print("●나이 : " + rs.getString("age") + "\t");
 				System.out.print("●전화번호 : " + rs.getString("phoneNumber") + "\n");
+				a++;
+			}
+			if(a==0) {
+				System.err.println("[ 해당 카테고리가 없습니다 ]");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
