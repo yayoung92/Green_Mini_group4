@@ -6,10 +6,11 @@ import greenMinigroup4.CategorySearch;
 import greenMinigroup4.ConsoleTextColor;
 import greenMinigroup4.Delete;
 import greenMinigroup4.Insert;
-import greenMinigroup4.Join;
+import greenMinigroup4.Signup;
 import greenMinigroup4.List;
 import greenMinigroup4.Login;
 import greenMinigroup4.Search;
+import greenMinigroup4.Signout;
 import greenMinigroup4.Update;
 import infor.Person;
 import infor.User;
@@ -20,7 +21,8 @@ public class Main {
 		User user = new User();
 		Person person = new Person();
 		Login login = new Login();
-		Join join = new Join();
+		Signup signup = new Signup();
+		Signout signout = new Signout();
 		Search search = new Search();
 		Insert insert = new Insert();
 		Update update = new Update();
@@ -167,13 +169,15 @@ public class Main {
 							num = scan.nextInt();
 
 							if (num == 1) {
-								System.out.print("  ●  아이디 를 입력해주세요 : ");
-								id = scan.next();
-								System.out.print("  ●  비밀번호 를 입력해주세요 : ");
+								ConsoleTextColor.printColorln("  경고! 신중하게 결정하세요 ", "red");	
+								System.out.println("-   회원정보가 삭제됩니다!   -");
+								System.out.println();
+								System.out.print("  ●  비밀번호 를 입력하세요 : ");
 								password = scan.next();
-
-								delete.deleteIdxPerson(delete.selectIdx(id));
-								if (delete.delete(id, password) == 1) {
+								int dd = delete.selectIdx(id);
+								
+								if (signout.delete(id, password) == 1) {
+									signout.deleteIdxPerson(dd);
 									System.out.println();
 									System.out.println("------------------------------------------");
 									System.out.println(" [ 회원정보가 삭제되었습니다. ] ");
@@ -181,8 +185,8 @@ public class Main {
 									System.out.println("------------------------------------------");
 									System.out.println("******************************************");
 									break start;
-								} else if (delete.delete(id, password) == 0) {
-									System.err.println(" [ 회원정보가 일지하지 않습니다. ]");
+								} else if (signout.delete(id, password) == 0) {
+									System.err.println(" [ 비밀번호가 일지하지 않아서 탈퇴할 수 없습니다. ]");
 								}
 							} else if (num == 2) {
 								ConsoleTextColor.printColorln(" [ 로그아웃 되었습니다. ]", "purple");
@@ -201,7 +205,7 @@ public class Main {
 
 			} else if (start.equals("2")) {
 				System.out.println("    >>>>   회원가입  하기   <<<<   ");
-				join.join();
+				signup.join();
 			} else
 				System.err.println(" [ 잘못 입력했습니다. ]");
 		}

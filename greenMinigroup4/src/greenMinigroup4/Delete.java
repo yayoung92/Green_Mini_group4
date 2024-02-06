@@ -24,30 +24,6 @@ public class Delete {
 		}
 	}
 
-	// 유저의 회원탈퇴
-	public int delete(String name, String password) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-
-		int result = 0;
-
-		try {
-			conn = DBConnection.getConnection();
-			String sql = "delete from user where u_id=? and u_password=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
-			pstmt.setString(2, password);
-			result = pstmt.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		if (result == 1) {
-			return 1;
-		} else
-			return 0;
-	}
-
 	// 유저의 idx 가져오기
 	public int selectIdx(String id) {
 		Connection conn = null;
@@ -71,24 +47,7 @@ public class Delete {
 		return idx;
 	}
 
-	// 유저 회원탈퇴 시 유저의 주소록 삭제하기
-	public void deleteIdxPerson(int idx) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-
-		try {
-			conn = DBConnection.getConnection();
-			String sql = "delete from person where u_idx=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, idx);
-			pstmt.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	// 유저의 주소록 사람 1명 삭제하기
+	// 유저의 주소록 사람 삭제하기
 	public void deletePerson(int idx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -118,7 +77,7 @@ public class Delete {
 			System.err.println(" [ 주소록에 없는 사람입니다. ] ");
 	}
 
-	// 카테고리 삭제
+	// 카테고리 삭제하기
 	public void deleteCategory(int idx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
