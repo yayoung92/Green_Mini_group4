@@ -9,8 +9,6 @@ import db.DBConnection;
 import infor.User;
 
 public class Login {
-	User user = new User();
-
 	// 로그인 기능
 	public int login(String id, String password) {
 		Connection conn = null;
@@ -35,18 +33,5 @@ public class Login {
 			e.printStackTrace();
 		}
 		return 1;
-	}
-
-	// 로그인 정보 받는 코드
-	public User inputUser() {
-		Scanner scan = new Scanner(System.in);
-		System.out.println("          <      로그인 하기      >          ");
-		System.out.print("  ●  아이디를 입력하세요: ");
-		String id = scan.next();
-
-		System.out.print("  ●  비밀번호를 입력하세요: ");
-		String password = scan.next();
-
-		return new User(id, password);
 	}
 }
