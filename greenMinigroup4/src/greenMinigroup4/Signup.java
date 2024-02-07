@@ -9,11 +9,10 @@ import db.DBConnection;
 import infor.User;
 
 public class Signup {
-	private Login cli = new Login();
 
 	// 회원가입 기능
 	public void join() {
-		User user = cli.inputUser();
+		User user = this.inputUser();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		boolean result = checkID(user.getUserId());
@@ -61,5 +60,17 @@ public class Signup {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	// 회원 정보 받는 코드
+	public User inputUser() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println();
+		System.out.print("  ●  아이디를 입력하세요: ");
+		String id = scan.next();
+
+		System.out.print("  ●  비밀번호를 입력하세요: ");
+		String password = scan.next();
+
+		return new User(id, password);
 	}
 }
