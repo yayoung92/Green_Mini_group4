@@ -8,6 +8,18 @@
 
 사용 프로그램 : Eclipse, HiediSql, MySQL, docker, github, sourcetree
 
+![1](https://github.com/yayoung92/Green_Mini_group4/assets/136683241/b14c45e0-7524-47a2-9415-c6ce4412a790)
+![2](https://github.com/yayoung92/Green_Mini_group4/assets/136683241/56fff924-4f27-45c3-8f3d-5380b87ca917)
+![3](https://github.com/yayoung92/Green_Mini_group4/assets/136683241/7cc141f7-e9d8-4074-bcd8-92e1885ece89)
+![4](https://github.com/yayoung92/Green_Mini_group4/assets/136683241/70a780f2-6744-4453-adb2-611468527557)
+<img width="625" alt="5" src="https://github.com/yayoung92/Green_Mini_group4/assets/136683241/7c4a523a-9e61-41e4-8f11-ccff5c7eac72">
+![6](https://github.com/yayoung92/Green_Mini_group4/assets/136683241/0bfc25b6-d5cd-4ddc-81f5-21448234c1cc)
+![7](https://github.com/yayoung92/Green_Mini_group4/assets/136683241/b984edda-0925-45da-9633-cb05d0444079)
+![8](https://github.com/yayoung92/Green_Mini_group4/assets/136683241/a1760d87-6275-4c8a-b434-7b26ca72f78c)
+![9](https://github.com/yayoung92/Green_Mini_group4/assets/136683241/b91c35fd-5020-443e-a5ef-bbe820185fc9)
+![10](https://github.com/yayoung92/Green_Mini_group4/assets/136683241/bcadb726-9cfb-4a08-ac61-c22b91b04d89)
+
+
 자체 평가
 
 양가영 : 팀원들 덕분에 프로젝트 완성할 수 있어서 좋은 경험이었습니다. 다양한 사람들과 협업하는 깃 관리에 대해 많이 알게 된 시간이었습니다.
